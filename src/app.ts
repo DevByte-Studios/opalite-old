@@ -2,7 +2,7 @@ import express from "express";
 import ExpressSession from "express-session";
 import { authorize } from "./oauth";
 import path from "path";
-
+import { initPayment, processPayment } from "./paypal";
 
 const config = require("../opalite.json");
 
@@ -18,7 +18,7 @@ app.use(ExpressSession({
 
 app.get("/", (req, res) => {
     if (req.session["user"]) {
-        res.send(`<img src="${req.session["avatar"] + "?size=128"}">`)
+        res.render("../templates/dashboard.ejs", {userId: req.session["user"]});
     } else
         res.render("../templates/index.ejs");
 });
@@ -29,6 +29,14 @@ app.get("/login", (req, res) => {
 
 app.get("/authorize", (req, res) => {
     authorize(config, req, res);
+});
+
+app.get('/create', function(req, res){
+    initPayment(req, res);
+});
+
+app.get('/process', function(req, res){
+    processPayment(req, res);
 });
 
 app.listen(80, console.error);
