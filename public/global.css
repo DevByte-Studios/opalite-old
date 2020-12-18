@@ -1,0 +1,13 @@
+.discord {
+    padding: 10px;
+    background-color: #7289da;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none !important;
+    font-family: sans-serif;
+    transition: all ease 0.2s;
+}
+
+.discord:hover {
+    background-color: #6279ca;
+}
