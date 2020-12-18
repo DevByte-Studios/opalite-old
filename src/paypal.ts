@@ -11,19 +11,24 @@ paypal.configure({
 });
 
 export function initPayment(req, res) {
+    if (!req.session["user"]) {
+        res.send("not logged in.");
+        return;
+    }
+
     //build PayPal payment request
     var payReq = JSON.stringify({
         'intent':'sale',
         'redirect_urls':{
-            'return_url':'http://localhost/process',
-            'cancel_url':'http://localhost/cancel'
+            'return_url' : 'http://localhost/process?discord=' + req.session["user"],
+            'cancel_url' : 'http://localhost/cancel'
         },
         'payer':{
             'payment_method':'paypal'
         },
         'transactions':[{
             'amount':{
-                'total':'5.13',
+                'total':req.query.amount,
                 'currency':'USD'
             },
             'description':'This is the payment transaction description.'
@@ -69,8 +74,7 @@ export function processPayment(req, res) {
                 .then(res => res.json())
                 .then(response => {
                     if (response.status == 'COMPLETED') {
-
-                        res.send('You payed ' + response.purchase_units[0].amount.value);
+                        res.send('You payed ' + response.purchase_units[0].amount.value + " with account " + req.query.discord);
                     } else {
                         res.send("not completed");
                     }

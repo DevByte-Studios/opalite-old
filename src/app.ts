@@ -3,8 +3,11 @@ import ExpressSession from "express-session";
 import { authorize } from "./oauth";
 import path from "path";
 import { initPayment, processPayment } from "./paypal";
+import * as db from "./database";
 
 const config = require("../opalite.json");
+
+db.init();
 
 const app = express();
 app.set("view engine", "ejs");
@@ -31,11 +34,11 @@ app.get("/authorize", (req, res) => {
     authorize(config, req, res);
 });
 
-app.get('/create', function(req, res){
+app.get('/create', function(req, res) {
     initPayment(req, res);
 });
 
-app.get('/process', function(req, res){
+app.get('/process', function(req, res) {
     processPayment(req, res);
 });
 
