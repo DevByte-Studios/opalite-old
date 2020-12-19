@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { discordRegister } from "./database";
 
 export function authorize(config, req, res) {
     let params = new URLSearchParams();
@@ -14,9 +15,11 @@ export function authorize(config, req, res) {
         fetch("https://discord.com/api/users/@me", {headers: {"Authorization": `Bearer ${response.access_token}`}})
         .then(res => res.json())
         .then(response => {
-            req.session["user"] = response.id;
-            req.session["avatar"] = `https://cdn.discordapp.com/avatars/${response.id}/${response.avatar}.png?size=128`
-            res.redirect("/");
+            discordRegister(response.id + "", (id, permission) => {
+                req.session["user"] = id;
+                req.session["permission"] = permission;
+                res.redirect("/");
+            });
         });
     });
 }

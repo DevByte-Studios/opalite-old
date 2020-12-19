@@ -21,7 +21,14 @@ app.use(ExpressSession({
 
 app.get("/", (req, res) => {
     if (req.session["user"]) {
-        res.render("../templates/dashboard.ejs", {userId: req.session["user"]});
+        db.getUser(req.session["user"], (user) => {
+            if (user.permission == 0) {
+                res.render("../templates/dashboard.ejs", {userId: user.uid, credits: user.credits});
+            } else {
+                res.render("../templates/admin.ejs", {});
+            }
+            
+        });
     } else
         res.render("../templates/index.ejs");
 });

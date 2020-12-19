@@ -1,6 +1,7 @@
 import paypal from "paypal-rest-sdk";
 import fetch from "node-fetch";
 import btoa from "btoa";
+import { addCredits, claimPayment, isPaymentClaimed } from "./database";
 
 const config = require("../opalite.json");
 
@@ -16,26 +17,31 @@ export function initPayment(req, res) {
         return;
     }
 
+    if (req.query.amount < 5) {
+        res.send("hoool up");
+        return;
+    }
+
     //build PayPal payment request
     var payReq = JSON.stringify({
         'intent':'sale',
         'redirect_urls':{
-            'return_url' : 'http://localhost/process?discord=' + req.session["user"],
-            'cancel_url' : 'http://localhost/cancel'
+            'return_url' : 'http://localhost/process?uid=' + req.session["user"],
+            'cancel_url' : 'http://localhost/'
         },
         'payer':{
             'payment_method':'paypal'
         },
         'transactions':[{
             'amount':{
-                'total':req.query.amount,
-                'currency':'USD'
+                'total' : req.query.amount,
+                'currency' : 'USD',
             },
-            'description':'This is the payment transaction description.'
+            'description' : `Updating users virtual balance (+${req.query.amount * 100})`
         }]
     });
 
-    paypal.payment.create(payReq, function(error, payment){
+    paypal.payment.create(payReq, function(error, payment) {
         if(error){
             console.error(error);
         } else {
@@ -70,11 +76,17 @@ export function processPayment(req, res) {
 
                 let token = req.query.token.substr(3);
 
+                console.log(req.query);
+
                 fetch(`https://api.sandbox.paypal.com/v2/checkout/orders/${token}`, {headers: {"Authorization": `Basic ${btoa(config.paypal_id + ":" + config.paypal_secret)}`}})
                 .then(res => res.json())
                 .then(response => {
                     if (response.status == 'COMPLETED') {
-                        res.send('You payed ' + response.purchase_units[0].amount.value + " with account " + req.query.discord);
+                        isPaymentClaimed(req.query.paymentId, () => {
+                            addCredits(req.query.uid, response.purchase_units[0].amount.value * 100);
+                            claimPayment(req.query.paymentId, req.query.uid);
+                        });
+                        res.redirect("/");
                     } else {
                         res.send("not completed");
                     }
