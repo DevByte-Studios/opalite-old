@@ -11,9 +11,9 @@ export async function buyProcess(req, res) {
                 let currDate = Math.floor(Date.now() / 1000);
                 db.db.run("INSERT INTO products (uid, owner, initiatedAt, nextDue, state) VALUES (?, ?, ?, ?, ?)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active"]);
                 console.log("activated product");
-                res.redirect("/");
+                res.redirect("/dashboard");
             }
         });
     } else
-        res.redirect("/");
+        res.redirect("/login");
 }

@@ -26,6 +26,10 @@ app.use(ExpressSession({
 }));
 
 app.get("/", (req, res) => {
+    res.render("../templates/index.ejs");
+});
+
+app.get("/dashboard", (req, res) => {
     if (req.session["user"]) {
         db.getUser(req.session["user"], (user) => {
             if (user.permission == 0) {
@@ -35,10 +39,22 @@ app.get("/", (req, res) => {
             } else {
                 res.render("../templates/admin.ejs", {});
             }
-            
         });
     } else
-        res.render("../templates/index.ejs");
+        res.redirect("/login");
+});
+
+app.get("/admin", (req, res) => {
+    if (req.session["user"]) {
+        db.getUser(req.session["user"], (user) => {
+            if (user.permission == 0) {
+                res.redirect("/dashboard");
+            } else {
+                res.render("../templates/admin.ejs", {});
+            }
+        });
+    } else
+        res.redirect("/login");
 });
 
 app.get("/login", (req, res) => {

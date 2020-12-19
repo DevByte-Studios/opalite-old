@@ -28,7 +28,7 @@ export function initPayment(req, res) {
         'intent':'sale',
         'redirect_urls':{
             'return_url' : 'http://localhost/process?uid=' + req.session["user"],
-            'cancel_url' : 'http://localhost/'
+            'cancel_url' : 'http://localhost/dashboard'
         },
         'payer':{
             'payment_method':'paypal'
@@ -86,13 +86,13 @@ export function processPayment(req, res) {
                             claimPayment(req.query.paymentId, req.query.uid);
                             checkSubscriptionsForUser(req.query.uid);
                         });
-                        res.redirect("/");
+                        res.redirect("/dashboard");
                     } else {
-                        res.send("not completed");
+                        res.redirect("/dashboard");
                     }
                 });
             } else {
-                res.send('payment not successful');
+                res.redirect("/dashboard");
             }
         }
     });

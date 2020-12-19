@@ -22,13 +22,13 @@ async function checkSubscription(subscription) {
                     db.run("UPDATE products SET nextDue=? WHERE uid=?", [currTimestamp + subscriptionsLength, subscription.uid]);
                     console.log("renewed subscription with uid " + subscription.uid);
                     if (subscription.state == "inactive" || subscription.state == "suspended") {
-                        console.log("reactivating product" + subscription.uid);
+                        console.log("reactivating product" + subscription.uid); // TODO : set config.php -> active
                         db.run("UPDATE products SET state=? WHERE uid=?", ["active", subscription.uid]);
                     }
                 } else {
                     if (subscription.state != "inactive") {
                         db.run("UPDATE products SET state=? WHERE uid=?", ["inactive", subscription.uid]);
-                        console.log("deactivating product " + subscription.uid);
+                        console.log("deactivating product " + subscription.uid); // TODO : deactive
                     }
                 }
             });
@@ -36,7 +36,7 @@ async function checkSubscription(subscription) {
             getUser(subscription.owner, user => {
                 if (user.credits < 500) { // CHECK FOR ALL SUBSCRIPTIONs
                     if (subscription.state == "active") {
-                        console.log("suspending product " + subscription.uid);
+                        console.log("suspending product " + subscription.uid); // TODO :  suspend
                         db.run("UPDATE products SET state=? WHERE uid=?", ["suspended", subscription.uid]);
                     }
                 } else {
