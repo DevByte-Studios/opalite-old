@@ -76,8 +76,6 @@ export function processPayment(req, res) {
 
                 let token = req.query.token.substr(3);
 
-                console.log(req.query);
-
                 fetch(`https://api.sandbox.paypal.com/v2/checkout/orders/${token}`, {headers: {"Authorization": `Basic ${btoa(config.paypal_id + ":" + config.paypal_secret)}`}})
                 .then(res => res.json())
                 .then(response => {

@@ -1,0 +1,63 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "discord",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "credits",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "permission",
+                    "type": "INTEGER"
+                }
+            ]
+        },
+        {
+            "name": "transactions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "claimedAt",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "user",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        {
+            "name": "products",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "owner",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "deploymentAt",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "nextDue",
+                    "type": "INTEGER"
+                }
+            ]
+        }
+    ]
+}

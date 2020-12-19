@@ -1,5 +1,6 @@
 import * as path from "path";
 import { simpleflake } from "simpleflakes";
+import { tables } from "./tables.json";
 
 import sqlite3_, { Database } from "sqlite3";
 const sqlite3 = sqlite3_.verbose();
@@ -34,10 +35,13 @@ export async function isPaymentClaimed(paymentID: string, callback) {
     });
 }
 
+
+//Add payment as claimed to database
 export async function claimPayment(paymentID: string, user: string) {
     db.run("INSERT INTO transactions(id, claimedAt, user) VALUES(?, ?, ?)", [paymentID, Math.floor(Date.now() / 1000), user]);
 }
 
+//Get full user object from uid
 export function getUser(uid: string, callback) {
     db.get("SELECT * FROM users WHERE uid=?", [uid], (err, row) => {
         callback(row);
@@ -45,6 +49,16 @@ export function getUser(uid: string, callback) {
 }
 
 function initTables() {
-    db.run("CREATE TABLE IF NOT EXISTS users(uid TEXT, discord TEXT, credits INTEGER, permission INTEGER)");
-    db.run("CREATE TABLE IF NOT EXISTS transactions(id TEXT, claimedAt INTEGER, user TEXT)");
+    //Create all tables from tables.json
+    tables.forEach(table => {
+        let sql = `CREATE TABLE IF NOT EXISTS ${table.name}(`;
+        table.columns.forEach(column => {
+            sql += `${column.name} ${column.type},`;
+        });
+
+        sql = sql.substr(0, sql.length - 1); //to remove ',' at end
+        sql += `)`;
+
+        db.run(sql);
+    });
 }
