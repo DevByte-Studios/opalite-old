@@ -11,11 +11,8 @@ import * as dcBot from "./discordBot";
 const config = require("../opalite.json");
 
 db.init();
-dcBot.init();
 
-setTimeout(() => {
-    checkSubscriptions();
-}, 100)
+dcBot.init();
 
 const app = express();
 app.set("view engine", "ejs");

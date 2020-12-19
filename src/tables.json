@@ -58,6 +58,10 @@
                     "type": "INTEGER"
                 },
                 {
+                    "name": "notified",
+                    "type": "INTEGER"
+                },
+                {
                     "name": "state",
                     "type": "TEXT",
                     "_comment": "active, suspended (no credits on 28), inactive (duedate overstepped 'deleted'), cancelled (product is cancelled completely)"
