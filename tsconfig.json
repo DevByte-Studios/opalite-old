@@ -6,7 +6,9 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
+        "rootDir": "src",
+        "allowJs": true,
+        "lib": ["esnext"],
         "resolveJsonModule": true
     },
-    "lib": ["es2015"]
 }

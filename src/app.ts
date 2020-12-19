@@ -6,10 +6,12 @@ import { initPayment, processPayment } from "./paypal";
 import * as db from "./database";
 import { checkSubscriptions, subscriptionsLength } from "./subscription";
 import { buyProcess } from "./store";
+import * as dcBot from "./discordBot";
 
 const config = require("../opalite.json");
 
 db.init();
+dcBot.init();
 
 setTimeout(() => {
     checkSubscriptions();
