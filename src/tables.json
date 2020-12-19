@@ -60,7 +60,7 @@
                 {
                     "name": "state",
                     "type": "TEXT",
-                    "_comment": "active, suspended (2 day bevor duedate, no credits), inactive (duedate overstepped, will deduct cretids and activate again if available), cancelled (product is cancelled completely)"
+                    "_comment": "active, suspended (no credits on 28), inactive (duedate overstepped 'deleted'), cancelled (product is cancelled completely)"
                 }
             ]
         }
