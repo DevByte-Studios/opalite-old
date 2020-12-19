@@ -7,9 +7,14 @@
 </head>
 
 <body>
-    Hey! Your id: <%= userId %> You have <%= credits %><br />
+    Hey! Your id: <%= user.userId %> You have <%= user.credits %><br />
     <a href="/create?amount=5">Pay 5</a> <br />
     <a href="/create?amount=20">Pay 20</a>
+    These are your products:
+    <% products.forEach((product => { %>
+        <%= product.uid + " is next due " + new Date(product.nextDue * 1000).toLocaleString()%>
+    <% }))%>
+    <a href="/buy">Buy a new one</a>
 </body>
 
 </html>

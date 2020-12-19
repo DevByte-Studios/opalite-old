@@ -5,7 +5,7 @@ import { tables } from "./tables.json";
 import sqlite3_, { Database } from "sqlite3";
 const sqlite3 = sqlite3_.verbose();
 
-var db: Database;
+export var db: Database;
 
 export async function init() {
     db = new sqlite3.Database(path.join(__dirname, '../opalite.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => console.error);

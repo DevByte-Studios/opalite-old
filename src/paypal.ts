@@ -2,6 +2,7 @@ import paypal from "paypal-rest-sdk";
 import fetch from "node-fetch";
 import btoa from "btoa";
 import { addCredits, claimPayment, isPaymentClaimed } from "./database";
+import { checkSubscriptionsForUser } from "./subscription";
 
 const config = require("../opalite.json");
 
@@ -83,6 +84,7 @@ export function processPayment(req, res) {
                         isPaymentClaimed(req.query.paymentId, () => {
                             addCredits(req.query.uid, response.purchase_units[0].amount.value * 100);
                             claimPayment(req.query.paymentId, req.query.uid);
+                            checkSubscriptionsForUser(req.query.uid);
                         });
                         res.redirect("/");
                     } else {

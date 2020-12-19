@@ -50,12 +50,17 @@
                     "type": "TEXT"
                 },
                 {
-                    "name": "deploymentAt",
+                    "name": "initiatedAt",
                     "type": "INTEGER"
                 },
                 {
                     "name": "nextDue",
                     "type": "INTEGER"
+                },
+                {
+                    "name": "state",
+                    "type": "TEXT",
+                    "_comment": "active, suspended (2 day bevor duedate, no credits), inactive (duedate overstepped, will deduct cretids and activate again if available), cancelled (product is cancelled completely)"
                 }
             ]
         }

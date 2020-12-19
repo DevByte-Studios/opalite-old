@@ -4,10 +4,16 @@ import { authorize } from "./oauth";
 import path from "path";
 import { initPayment, processPayment } from "./paypal";
 import * as db from "./database";
+import { checkSubscriptions, subscriptionsLength } from "./subscription";
+import { buyProcess } from "./store";
 
 const config = require("../opalite.json");
 
 db.init();
+
+setTimeout(() => {
+    checkSubscriptions();
+}, 100)
 
 const app = express();
 app.set("view engine", "ejs");
@@ -23,7 +29,9 @@ app.get("/", (req, res) => {
     if (req.session["user"]) {
         db.getUser(req.session["user"], (user) => {
             if (user.permission == 0) {
-                res.render("../templates/dashboard.ejs", {userId: user.uid, credits: user.credits});
+                db.db.all("SELECT * FROM products WHERE owner=?", [user.uid], (err, rows) => {
+                    res.render("../templates/dashboard.ejs", {user: user, products: rows});
+                })
             } else {
                 res.render("../templates/admin.ejs", {});
             }
@@ -47,6 +55,10 @@ app.get('/create', function(req, res) {
 
 app.get('/process', function(req, res) {
     processPayment(req, res);
+});
+
+app.get("/buy", (req, res) => {
+    buyProcess(req, res);
 });
 
 app.listen(80, console.error);
