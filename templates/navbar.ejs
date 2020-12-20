@@ -23,25 +23,31 @@
                     <a class="nav-link" href="#pricing">pricing</a>
                 </li>
                 <% } else {%>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#features">features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#pricing">pricing</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#features">features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#pricing">pricing</a>
+                </li>
                 <% } %>
             </ul>
 
             <ul class="navbar-nav mr-auto text-right" id="sign-in">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">SIGN IN</a>
-                </li>
+                <% if (isLoggedIn) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">DASHBOARD</a>
+                    </li>
+                <% } else {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">SIGN IN</a>
+                    </li>
+                <% } %>
             </ul>
         </div>
 

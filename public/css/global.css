@@ -433,7 +433,25 @@ footer p, footer a {
     transition: var(--transition);
 }
 
+.smart-scroll {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: auto;
+    z-index: 1030;
+    transition: all .3s ease-in-out;
+}
 
+.scrolled-down {
+    transform: translateY(-100%);
+    transition: all .3s ease-in-out;
+}
+
+.scrolled-up {
+    background-color: #fff;
+    transform: translateY(0);
+}
 
 @media only screen and (min-width:768px) {
 
@@ -467,7 +485,7 @@ footer p, footer a {
     }
 
     .mobile-text-center {
-        text-align: center;
+        text-align: center!important;
     }
 
     .pricing .col-md-4:first-child .pricing-box {
@@ -478,24 +496,51 @@ footer p, footer a {
     .pricing .col-md-4:last-child .pricing-box {
         margin-top: 1rem;
     }
-}
 
-.smart-scroll {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: auto;
-    z-index: 1030;
-    transition: all .3s ease-in-out;
-}
+    .header-shapes {
+        display: none;
+    }
 
-.scrolled-down {
-    transform: translateY(-100%);
-    transition: all .3s ease-in-out;
-}
+    .game-box {
+        margin-top: 1rem;
+    }
 
-.scrolled-up {
-    background-color: #fff;
-    transform: translateY(0);
+    .smart-scroll {
+        position: relative
+    }
+
+    .features .section-title h2::before {
+        display: none;
+    }
+
+    .features .section-title h2 {
+        padding-top: 24px;
+    }
+
+    .features-container {
+        margin-top: 0px;
+    }
+
+    .feature-box.active {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+
+    .feature-box {
+        margin-top: 1rem; 
+        border-radius: var(--border-radius);
+    }
+
+    .m-d-none {
+        display: none;
+    }
+
+    .pricing .col-md-4:first-child .pricing-box, .pricing .col-md-4:first-child .pricing-box .get-started {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+
+    footer .gst {
+        margin-top: 0px;
+    }
 }
