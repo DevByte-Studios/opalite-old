@@ -39,8 +39,10 @@
             </ul>
 
             <ul class="navbar-nav mr-auto text-right" id="sign-in">
-                <% if (page == `index`) { %>
-                    
+                <% if (isLoggedIn) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">DASHBOARD</a>
+                    </li>
                 <% } else {%>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">SIGN IN</a>
