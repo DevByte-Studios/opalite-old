@@ -67,6 +67,48 @@
                     "_comment": "active, suspended (no credits on 28), inactive (duedate overstepped 'deleted'), cancelled (product is cancelled completely)"
                 }
             ]
+        },
+        {
+            "name": "transactions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "claimedAt",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "user",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        {
+            "name": "logs",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "type",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "user",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "message",
+                    "type": "TEXT"
+                }
+            ]
         }
     ]
 }

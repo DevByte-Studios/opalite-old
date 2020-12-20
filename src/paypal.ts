@@ -14,12 +14,15 @@ paypal.configure({
 
 export function initPayment(req, res) {
     if (!req.session["user"]) {
-        res.send("not logged in.");
+        res.redirect("/");
         return;
     }
-
+    if (!req.query.amount) {
+        res.redirect("/");
+        return;
+    }
     if (req.query.amount < 5) {
-        res.send("hoool up");
+        res.redirect("/");
         return;
     }
 
@@ -66,6 +69,19 @@ export function initPayment(req, res) {
 }
 
 export function processPayment(req, res) {
+    if (!req.query.paymentId) {
+        res.redirect("/");
+        return;
+    }
+    if (!req.query.PayerID) {
+        res.redirect("/");
+        return;
+    }
+    if (!req.query.token) {
+        res.redirect("/");
+        return;
+    }
+
     var paymentId = req.query.paymentId;
     var payerId = { 'payer_id': req.query.PayerID };
 
