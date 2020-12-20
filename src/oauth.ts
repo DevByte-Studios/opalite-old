@@ -8,23 +8,30 @@ export function authorize(config, req, res) {
     params.append("client_secret", config.secret);
     params.append("code", req.query.code + "");
     params.append("grant_type", "authorization_code");
-    params.append("redirect_uri", "http://localhost/authorize");
+    params.append("redirect_uri", "http://localhost/oauth2/authorize");
 
     fetch("https://discord.com/api/oauth2/token", {method: 'post', body: params})
     .then(res => res.json())
-    .then(response => {
+        .then(response => {
         fetch("https://discord.com/api/users/@me", {headers: {"Authorization": `Bearer ${response.access_token}`}})
         .then(res => res.json())
-        .then(response => {
-            discordRegister(response.id + "", (id, permission) => {
-                req.session["user"] = id;
-                req.session["permission"] = permission;
+            .then(dcResponse => {
+                if (!dcResponse.id) {
+                    res.redirect("/");
+                    return;
+                }
+                console.log(dcResponse);
+                discordRegister(dcResponse.id + "", (id, permission) => {
+                    console.log(id);
+                    req.session["user"] = id;
+                    req.session["discord-info"] = response;
+                    req.session["permission"] = permission;
 
-                if (req.query.redirect)
-                    res.redirect(req.query.redirect);
-                else
-                    res.redirect("/dashboard");
-            });
+                    if (req.query.redirect)
+                        res.redirect(req.query.redirect);
+                    else
+                        res.redirect("/dashboard");
+                });
         });
     });
 }

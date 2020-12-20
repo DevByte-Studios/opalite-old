@@ -74,18 +74,34 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-center">
-                    <li class="nav-item">
+                    <li class="nav-link nav-slider" id="nav-slider"></li>
+                    <li class="nav-item" id="nav-item-1" onclick="navItemClick(1)">
                         <a class="nav-link active" href="#dashboard">Dashboard</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nav-item-2" onclick="navItemClick(2)">
                         <a class="nav-link" href="#services">My Services</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nav-item-3" onclick="navItemClick(3)">
                         <a class="nav-link" href="#notifications">Notifications</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nav-item-4" onclick="navItemClick(4)">
                         <a class="nav-link" href="#buy">Purchase Credits</a>
                     </li>
+                    <script defer>
+                        const navSlider = document.getElementById("nav-slider");
+                        function navItemClick(id) {
+                            document.querySelector(".nav-link.active").classList.remove("active");
+                            document.getElementById("nav-item-" + id).children[0].classList.add("active");
+                            navSlider.style.width = 
+                                document.getElementById("nav-item-" + id).getBoundingClientRect().width + "px";
+                            let offset = 0;
+                            if (id != 1)
+                                for (let i = 1; i < id; i++)
+                                    offset += document.getElementById("nav-item-" + i).getBoundingClientRect().width;
+                            navSlider.style.left = offset + "px";
+                        }
+                        document.getElementById("nav-item-1").click();
+                    </script>
                 </ul>
             </div>
         </div>

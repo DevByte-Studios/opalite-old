@@ -36,7 +36,7 @@ app.get("/dashboard", (req, res) => {
         db.getUser(req.session["user"], (user) => {
             if (user.permission == 0) {
                 db.db.all("SELECT * FROM products WHERE owner=?", [user.uid], (err, rows) => {
-                    res.render("../templates/dashboard.ejs", {user: user, products: rows});
+                    res.render("../templates/dashboard.ejs", {user: user, products: rows, discord: req.session["discord-info"]});
                 })
             } else {
                 res.render("../templates/admin.ejs", {});
