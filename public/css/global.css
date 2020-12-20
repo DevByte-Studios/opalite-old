@@ -69,9 +69,26 @@ a:hover {
     transition: var(--transition);
 }
 
-.main-btn:hover {
+.main-btn:hover,.main-btn-sm:hover, .main-btn-lg:hover {
     background-color: #223377;
     color: #fff;
+}
+
+.main-btn-sm {
+    background-color: #283D8D;
+    padding: 10px 15px;
+    border-radius: 12px;
+    color: #fff;
+    transition: var(--transition);
+}
+
+.main-btn-lg {
+    background-color: #283D8D;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 26px;
+    color: #fff;
+    transition: var(--transition);
 }
 
 .bg-left {
@@ -99,6 +116,35 @@ a:hover {
     height: 393px;
     right: 0;
     background-image: url(../img/Squares.png);
+}
+
+.pbg-bottom-left {
+    position: absolute;
+    bottom: -128px;
+    width: 300px;
+    height: 300px;
+    left: -43px;
+    background-image: url(../img/Squares.png);
+}
+
+.pbg-top-right {
+    position: absolute;
+    top: -240px;
+    width: 393px;
+    height: 393px;
+    right: 250px;
+    background-image: url(../img/Squares.png);
+    z-index: -1;
+}
+
+.pbg-middle-right {
+    position: absolute;
+    top: 30%;
+    width: 560.89px;
+    height: 486.02px;
+    right: 250px;
+    background-image: url(../img/triangle.png);
+    background-size: cover;
 }
 
 .navbar-light {
@@ -178,7 +224,7 @@ a:hover {
     transform: scale(1.03);
 }
 
-.game-box:hover .get-started {
+.game-box:hover .get-started, .pricing-box:hover .get-started {
     visibility: visible;
     opacity: 1;
 }
@@ -288,12 +334,102 @@ svg.bottom {
     transform: rotate(180deg);
 }
 
+.pricing-box {
+    border-radius: var(--border-radius);
+    color: #fff;
+    background-color: #283D8D;
+}
+
+.pricing-box .get-started {
+    border-radius: var(--border-radius);
+}
+
+.pricing .col-md-4:first-child .pricing-box, .pricing .col-md-4:first-child .pricing-box .get-started {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.pricing .col-md-4:last-child .pricing-box {
+   box-shadow: -1px 4px 12px 0px #00000080;
+}
+
+.pricing-box .pricing-header {
+    padding-top: 30px;
+}
+
+.pricing-box h4 {
+    font-size: 38px;
+}
+
+.pricing-box .pricing-fts {
+    padding: 0 30px 0px 30px;
+}
+
+.pricing .col-md-4:first-child .pricing-box .pricing-fts{
+    padding: 0 30px 30px 30px;
+}
+
+.pricing-box .pricing-fts p:first-child {
+    margin-top: 25px;
+}
+
+.pricing .col-md-4:first-child .pricing-box p:first-child {
+    margin-top: 0px;
+}
+
+.pricing-box p {
+    font-size: 22px;
+}
+
+.pricing-footer {
+    margin-top: calc(25px + .5rem);
+    background-color: #233474;
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    padding: 10px;
+    
+}
+
+.pricing-footer p {
+    font-size: 32px;
+    color: #fff;
+}
+
+footer {
+    background-color: var(--bg-secondary);
+}
+
+footer .copyright {
+    background-color: #08151d;
+    padding: 15px 0;
+}
+
+footer p, footer a {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #fff;
+    vertical-align: middle;
+}
+
 
 
 @media only screen and (min-width:768px) {
 
     .m-h-100 {
         min-height: 100%;
+    }
+
+    .m-pe-0 {
+        padding-right: 0!important;
+    }
+
+    .m-ps-0 {
+        padding-left: 0!important;
+    }
+
+    .pricing .col-md-4:first-child {
+        width: 30%;
     }
 
 }
@@ -311,6 +447,15 @@ svg.bottom {
 
     .mobile-text-center {
         text-align: center;
+    }
+
+    .pricing .col-md-4:first-child .pricing-box {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+
+    .pricing .col-md-4:last-child .pricing-box {
+        margin-top: 1rem;
     }
 }
 
