@@ -1,12 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Opalite</title>
+    <title>OPALITE</title>
     <%- include('head', {}); %>
 </head>
+
 <body>
-    <a href="/login" class="discord">Login with discord!</a>
+    <div class="header">
+        <div class="bg-right"></div>
+        <div class="bg-left"></div>
+        <div class="bg-bottom-right"></div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+
+                <a class="navbar-brand" href="#"><img src="img/logo.svg"> OPALITE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">pricing</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav mr-auto text-right" id="sign-in">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">SIGN IN</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <script>
+                var width = $('.navbar-brand').width();
+                $('#sign-in').css(`width`, width)
+            </script>
+        </nav>
+
+        <div class="container text-container">
+            <div class="row">
+                <div class="col-md-6 pr-5">
+                    <div class="row m-h-100">
+                        <div class="col-md-12 my-auto">
+                            <h2>ENJIN, TEBEX - IT'S TIME TO BREAK UP. SAY HELLO TO OPALITE.</h2>
+                            <p>Your last and only application you will ever need to give your community the online
+                                presence it needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5 mobile-hide">
+                    <img src="img/preview.png" alt="Preview" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="games-supported">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="game-box shadow text-center">
+                            <img src="img/mc.png" alt="minecraft">
+                            <h4>Minecraft</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="game-box shadow text-center">
+                            <img src="img/fivem.png" alt="minecraft">
+                            <h4>Fivem</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="game-box shadow text-center">
+                            <img src="img/garrys-mod.png" alt="minecraft">
+                            <h4>GMod</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="game-box shadow text-center">
+                            <img src="img/csgo.png" alt="minecraft">
+                            <h4>CS:GO</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="game-box shadow text-center">
+                            <img src="img/rust.png" alt="minecraft">
+                            <h4>Rust</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
-
-

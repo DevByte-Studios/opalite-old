@@ -1,0 +1,126 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+body {
+    background-color: #ffffff;
+    color: #707070;
+    font-family: Bahnschrift, 'sans-serif';
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    position: relative;
+    outline: none;
+}
+
+a {
+    color: #009245;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #02833e
+}
+
+.bg-left {
+    position: absolute;
+    top: 140px;
+    width: 679px;
+    height: 629px;
+    left: -170px;
+    background-image: url(../img/triangle.png);
+}
+
+.bg-right {
+    position: absolute;
+    top: 0;
+    width: 1275px;
+    height: 777px;
+    right: -139px;
+    background-image: url(../img/bg-left.png);
+}
+
+.navbar-light {
+    background-color: #fff;
+    border-bottom: 3px solid #F2F2F2
+}
+
+.navbar-light .navbar-brand img {
+    width: 64px;
+    height: 64px;
+}
+
+.navbar-light .navbar-brand, .navbar-light .navbar-nav .nav-link {
+    color: #021767;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.header .text-container {
+    margin-top: 150px
+}
+
+.header .text-container h2 {
+    font-weight: 800;
+    font-size: 36px;
+}
+
+.header .text-container {
+    font-size: 24px;
+}
+
+.game-box {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 28px;
+}
+
+.game-box img {
+    height: 100px;
+    width: auto;
+}
+
+.game-box h4 {
+    margin-top: 14px;
+    text-transform: uppercase;
+}
+
+
+
+@media only screen and (min-width:768px) {
+
+    .m-h-100 {
+        min-height: 100%;
+    }
+
+}
+
+@media only screen and (max-width:768px) {
+
+    .header h1 {
+        margin-bottom: 0;
+        font-size: 54px;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-text-center {
+        text-align: center;
+    }
+}
