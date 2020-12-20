@@ -11,45 +11,7 @@
         <div class="bg-right"></div>
         <div class="bg-left"></div>
         <div class="bg-bottom-right"></div>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-
-                <a class="navbar-brand" href="#"><img src="img/logo.svg"> OPALITE</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto text-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">about</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">pricing</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav mr-auto text-right" id="sign-in">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">SIGN IN</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            <script>
-                var width = $('.navbar-brand').width();
-                $('#sign-in').css(`width`, width)
-            </script>
-        </nav>
+        <%- include('navbar', {}); %>
 
         <div class="container text-container">
             <div class="row">
@@ -78,7 +40,7 @@
                             <h4>Minecraft</h4>
 
                             <div class="get-started">
-                                <a href="#" class="">Get Started</a>
+                                <a href="#" class="gs-btn">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -87,6 +49,10 @@
                         <div class="game-box shadow text-center">
                             <img src="img/fivem.png" alt="minecraft">
                             <h4>Fivem</h4>
+
+                            <div class="get-started">
+                                <a href="#" class="gs-btn">Get Started</a>
+                            </div>
                         </div>
                     </div>
 
@@ -94,6 +60,10 @@
                         <div class="game-box shadow text-center">
                             <img src="img/garrys-mod.png" alt="minecraft">
                             <h4>GMod</h4>
+
+                            <div class="get-started">
+                                <a href="#" class="gs-btn">Get Started</a>
+                            </div>
                         </div>
                     </div>
 
@@ -101,6 +71,10 @@
                         <div class="game-box shadow text-center">
                             <img src="img/csgo.png" alt="minecraft">
                             <h4>CS:GO</h4>
+
+                            <div class="get-started">
+                                <a href="#" class="gs-btn">Get Started</a>
+                            </div>
                         </div>
                     </div>
 
@@ -108,12 +82,145 @@
                         <div class="game-box shadow text-center">
                             <img src="img/rust.png" alt="minecraft">
                             <h4>Rust</h4>
+
+                            <div class="get-started">
+                                <a href="#" class="gs-btn">Get Started</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="var(--bg-secondary)" fill-opacity="1"
+            d="M0,96L40,117.3C80,139,160,181,240,181.3C320,181,400,139,480,117.3C560,96,640,96,720,122.7C800,149,880,203,960,229.3C1040,256,1120,256,1200,240C1280,224,1360,192,1400,176L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
+
+    <section class="features pb-3">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 bg-char="FEATURES">What makes us so damn special?</h2>
+            </div>
+            <div class="features-container">
+                <div class="row">
+                    <div class="col-md-5 pe-0">
+
+                        <div class="feature-box" id="feature-1-box" onclick="setActive('feature-1')">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row h-100">
+                                        <div class="col-md-12 my-auto text-center">
+                                            <i class="fas fa-hand-holding-usd"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>Built in Web/Donation Store</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique itaque qui quidem! Pariatur.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-box" id="feature-2-box" onclick="setActive('feature-2')">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row h-100">
+                                        <div class="col-md-12 my-auto text-center">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>Custom Community Forum</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique itaque qui quidem! Pariatur.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-box" id="feature-3-box" onclick="setActive('feature-3')">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row h-100">
+                                        <div class="col-md-12 my-auto text-center">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>All-in-one Index</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique itaque qui quidem! Pariatur.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-box" id="feature-4-box" onclick="setActive('feature-4')">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row h-100">
+                                        <div class="col-md-12 my-auto text-center">
+                                            <i class="fas fa-plug"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <h4>In-Game Plugin Support</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique itaque qui quidem! Pariatur.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-7" style="padding-left: 1!important;">
+                        <div class="row h-100">
+                            <div class="col-md-12 px-0">
+                                <script defer>
+                                    function setActive(id) {
+                                        $(".active-feature").removeClass("active-feature");
+                                        $("#" + id).addClass("active-feature");
+
+                                        $(".active").removeClass("active");
+                                        $("#" + id + "-box").addClass("active");
+                                    }
+                                    $("#feature-1-box").click();
+                                </script>
+                                <div class="feature active-feature" id="feature-1">
+                                    hi1
+                                </div>
+
+                                <div class="feature" id="feature-2">
+                                    hi2
+                                </div>
+
+                                <div class="feature" id="feature-3">
+                                    hi3
+                                </div>
+
+                                <div class="feature" id="feature-4">
+                                    hi4
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer text-center">
+                <h2>Already convinced?</h2>
+                <div class="d-inline-flex mt-3">
+                    <a href="#" class="main-btn">DEPLOY YOUR SITE NOW</a>
+                    <a href="#" class="main-btn ms-3">DEPLOY YOUR SITE NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="bottom main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="var(--bg-secondary)" fill-opacity="1"
+            d="M0,96L40,117.3C80,139,160,181,240,181.3C320,181,400,139,480,117.3C560,96,640,96,720,122.7C800,149,880,203,960,229.3C1040,256,1120,256,1200,240C1280,224,1360,192,1400,176L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
 </body>
 
 </html>
