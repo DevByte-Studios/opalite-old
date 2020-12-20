@@ -19,7 +19,11 @@ export function authorize(config, req, res) {
             discordRegister(response.id + "", (id, permission) => {
                 req.session["user"] = id;
                 req.session["permission"] = permission;
-                res.redirect("/dashboard");
+
+                if (req.query.redirect)
+                    res.redirect(req.query.redirect);
+                else
+                    res.redirect("/dashboard");
             });
         });
     });
