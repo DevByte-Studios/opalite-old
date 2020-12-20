@@ -91,6 +91,12 @@ a:hover {
     transition: var(--transition);
 }
 
+.header-shapes {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+
 .bg-left {
     position: absolute;
     top: 140px;
@@ -217,7 +223,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .game-box:hover {
@@ -399,6 +405,20 @@ footer {
     background-color: var(--bg-secondary);
 }
 
+footer .gst {
+    margin-top: -30px;
+    padding-bottom: 4rem;
+    color: #fff;
+}
+
+footer .gst h2 {
+    font-size: 38px;
+}
+
+footer .gst p {
+    margin-bottom: 1rem;
+}
+
 footer .copyright {
     background-color: #08151d;
     padding: 15px 0;
@@ -410,6 +430,7 @@ footer p, footer a {
     margin-bottom: 0;
     color: #fff;
     vertical-align: middle;
+    transition: var(--transition);
 }
 
 
@@ -475,7 +496,6 @@ footer p, footer a {
 }
 
 .scrolled-up {
-    background-color: #07080a;
+    background-color: #fff;
     transform: translateY(0);
-    transition: all .3s ease-in-out;
 }

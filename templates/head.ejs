@@ -22,7 +22,6 @@
 <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script defer>
     $(document).ready(function () {
-
         // detect scroll top or down
         if ($('.smart-scroll').length > 0) { // check if element exists
             var last_scroll_top = 0;
@@ -44,19 +43,8 @@
             }
         });
 
-        window.addEventListener('scroll', function () {
-            var element = document.querySelector('#accordion');
-            var position = element.getBoundingClientRect();
-
-            // checking for partial visibility
-            if (position.top < window.innerHeight && position.bottom >= 0) {
-                $("#accordion-right").removeClass("d-none");
-                $("#accordion-left").removeClass("d-none");
-                $("#accordion-left").addClass("animate__slideInRight");
-                $("#accordion-right").addClass("animate__slideInLeft");
-            }
-        });
-        
+        // var height = $('.smart-scroll').height();
+        // $('.text-container').css(`margin-top`, -height)
         AOS.init();
     });
 </script>
