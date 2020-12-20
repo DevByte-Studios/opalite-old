@@ -13,7 +13,9 @@
 
     <section id="dash-content">
         <div class="container">
-            <h4 class="wb"> <img src="https://cdn.discordapp.com/avatars/<%= discord.id %>/<%= discord.avatar %>.webp?size=128" alt="<%= discord.username %>"> Welcome back, <%= discord.username %></h4>
+            <h4 class="wb"> <img
+                    src="https://cdn.discordapp.com/avatars/<%= discord.id %>/<%= discord.avatar %>.webp?size=128"
+                    alt="<%= discord.username %>"> Welcome back, <%= discord.username %></h4>
             <div class="row">
 
                 <div class="col-md-3">
@@ -110,11 +112,21 @@
                 <div class="col-md-4">
                     <div class="card card-stats shadow mt-5" id="transactions">
                         <div class="card-body">
-                            <h4>Recent Transactions</h4>
-                            <div class="transactions">
-                                <p><span class="text-danger mr-2">-500 Credits</span> for HELLO.COM @ 20/12/2020</p>
-                                <p><span class="text-success mr-2">+1500 Credits</span> for HELLO.COM @ 10/11/2020</p>
-                                <p><span class="text-success mr-2">+500 Credits</span> for HELLO.COM @ 16/08/2020</p>
+                            <div class="row">
+                                <div class="col my-auto">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Recent Notfications</h5>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-color-noti rounded-circle shadow">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transactions mt-3">
+                                <p><span class="text-danger mr-2"><i class="fas fa-exclamation-circle"></i></span>
+                                    Failed to pay for product: HELLO.COM - Not enough credits</p>
+                                <p><span class="text-success mr-2"><i class="fas fa-check-circle"></i> Successully added 500 Credits to your balance</p>
+                                <p><span class="text-warning mr-2"><i class="fas fa-exclamation-triangle"></i></span> for HELLO.COM @ 16/08/2020</p>
                                 <p><span class="text-danger mr-2">-500 Credits</span> for HELLO.COM @ 04/08/2020</p>
                                 <p><span class="text-danger mr-2">-500 Credits</span> for HELLO.COM @ 01/01/2020</p>
                             </div>

@@ -2,6 +2,10 @@
     text-align: right;
 }
 
+.ml-auto {
+    margin-left: auto;
+}
+
 h4.wb img {
     width: 48px;
     border-radius: 50%;;
@@ -116,7 +120,7 @@ h4.wb img {
 }
 
 .transactions p {
-    border-top: 1px solid #000;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
     margin-bottom: 0;
     padding-top: .5rem;
     padding-bottom: .5rem;

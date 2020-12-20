@@ -39,7 +39,7 @@
                     <% } %>
                 </ul>
 
-                <ul class="navbar-nav mr-auto text-right" id="sign-in">
+                <ul class="navbar-nav text-right">
                     <% if (isLoggedIn) { %>
                         <% if (page == "index") { %>
                             <li class="nav-item">
@@ -85,7 +85,7 @@
                         <a class="nav-link" href="#notifications">Notifications</a>
                     </li>
                     <li class="nav-item" id="nav-item-4" onclick="navItemClick(4)">
-                        <a class="nav-link" href="#buy">Purchase Credits</a>
+                        <a class="nav-link" href="#buy">DEPLOY AN APPLICATION</a>
                     </li>
                     <script defer>
                         const navSlider = document.getElementById("nav-slider");
@@ -102,6 +102,11 @@
                         }
                         document.getElementById("nav-item-1").click();
                     </script>
+                </ul>
+                <ul class="navbar-nav ml-auto text-right">
+                    <li class="nav-item" id="nav-item-4" onclick="navItemClick(4)">
+                        <a class="nav-link" href="#buy">PURCHASE CREDITS</a>
+                    </li>
                 </ul>
             </div>
         </div>
