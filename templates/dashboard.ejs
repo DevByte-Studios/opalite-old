@@ -13,7 +13,7 @@
 
     <section id="dash-content">
         <div class="container">
-            <h4>Welcome back, Polite!</h4>
+            <h4>Welcome back, <%= discord.username %></h4>
             <div class="row">
 
                 <div class="col-md-3">
@@ -192,14 +192,6 @@
                 $('#sign-in').css(`width`, width)
             </script>
         </div>
-        Hey! Your id: <%= user.userId %> You have <%= user.credits %><br />
-        <a href="/create?amount=5">Pay 5</a> <br />
-        <a href="/create?amount=20">Pay 20</a>
-        These are your products:
-        <% products.forEach((product => { %>
-        <%= product.uid + " is next due " + new Date(product.nextDue * 1000).toLocaleString()%>
-        <% }))%>
-        <a href="/buy">Buy a new one</a>
     </section>
 </body>
 
