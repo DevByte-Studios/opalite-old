@@ -19,7 +19,14 @@
 
 #bottomNav.navbar-light .navbar-nav .nav-link.active {
     color: var(--main)!important;
-    border-bottom: 2px solid var(--main)
+    /* border-bottom: 2px solid var(--main) */
+}
+
+.nav-slider {
+    position:absolute;
+    border-bottom: 2px solid var(--main);
+    height: 100%;
+    transition: all ease-in-out .1s;
 }
 
 #dash-content {
@@ -50,4 +57,8 @@
 
 .text-right {
     text-align: right;
+}
+
+.nav-slider {
+    position: absolute;
 }
