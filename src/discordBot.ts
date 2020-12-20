@@ -23,7 +23,18 @@ export async function notifyPrior(discordId) {
     if (user != undefined) {
         user.send(new Discord.MessageEmbed()
             .setColor("#ffb01f")
-            .setTitle("You will not be able to pay for your product! Pls charge your credits"))
+            .setFooter("Opalite", "https://i.imgur.com/9bwePwM.png")
+            .setURL("https://opalite.gg/store")
+            .setDescription("Please purchase more credits on our store page.")
+            .setTimestamp()
+            .addField("\u200b", "\u200b")
+            .addField("Due Date", "12/07/2020 8:56PM", true)
+            .addField("Price", "500 Credits", true)
+            .addField("Remaining", "500 Credits", true)
+            .addField("\u200b", "\u200b")
+            .addField("Click here to purchase more credits:", "https://opalite.gg/store")
+            .setThumbnail("https://raw.githubusercontent.com/P3ntest/wumpus/main/images/warning.png")
+            .setTitle("You don't have enough credits for your subscription!"))
     }
 }
 
@@ -42,6 +53,6 @@ async function cacheAllMembers() {
 
 client.on("message", msg => {
     if (msg.content === "hey bot") {
-        notifySuspension(msg.author.id);
+        notifyPrior(msg.author.id);
     }
 });
