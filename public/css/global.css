@@ -171,7 +171,11 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 1s;
+    transition: all .3s ease-in-out;
+}
+
+.game-box:hover {
+    transform: scale(1.03);
 }
 
 .game-box:hover .get-started {
@@ -180,10 +184,10 @@ a:hover {
 }
 
 .get-started .gs-btn {
-    padding: 7px 15px;
+    padding: 7px 20px;
     background-color: var(--main);
     color: #fff;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     transition: var(--transition);
 }
 
@@ -308,4 +312,25 @@ svg.bottom {
     .mobile-text-center {
         text-align: center;
     }
+}
+
+.smart-scroll {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: auto;
+    z-index: 1030;
+    transition: all .3s ease-in-out;
+}
+
+.scrolled-down {
+    transform: translateY(-100%);
+    transition: all .3s ease-in-out;
+}
+
+.scrolled-up {
+    background-color: #07080a;
+    transform: translateY(0);
+    transition: all .3s ease-in-out;
 }
