@@ -7,17 +7,19 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header-shapes">
         <div class="bg-right"></div>
         <div class="bg-left"></div>
         <div class="bg-bottom-right"></div>
-        <%- include('navbar', {}); %>
+    </div>
+    <div class="header" id="home">
+        <%- include('navbar', {page: `index`}); %>
 
         <div class="container text-container">
             <div class="row">
                 <div class="col-md-6 pr-5">
                     <div class="row m-h-100">
-                        <div class="col-md-12 my-auto">
+                        <div class="col-md-12 my-auto mobile-text-center">
                             <h2>ENJIN, TEBEX - IT'S TIME TO BREAK UP. SAY HELLO TO OPALITE.</h2>
                             <p>Your last and only application you will ever need to give your community the online
                                 presence it needs.</p>
@@ -290,8 +292,10 @@
     </svg>
 
     <footer>
-        <div class="container">
-
+        <div class="container gst text-center pb-5">
+            <h2>CREATE YOUR COMMUNITIES ONLINE PRESENCE NOW</h2>
+            <p>Sign up today for free to get started</p>
+            <a href="#" class="main-btn">GET STARTED</a>
         </div>
         <div class="copyright">
             <div class="container">

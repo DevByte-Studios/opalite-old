@@ -1,27 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light smart-scroll" id="mainNav">
     <div class="container">
 
         <a class="navbar-brand" href="#"><img src="img/logo.svg"> OPALITE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto text-center">
+                <% if (page == `index`) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">about</a>
+                    <a class="nav-link" href="/about">about</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">features</a>
+                    <a class="nav-link" href="#features">features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">pricing</a>
+                    <a class="nav-link" href="#pricing">pricing</a>
                 </li>
+                <% } else {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#features">features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#pricing">pricing</a>
+                    </li>
+                <% } %>
             </ul>
 
             <ul class="navbar-nav mr-auto text-right" id="sign-in">
