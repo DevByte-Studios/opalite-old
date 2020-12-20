@@ -1,10 +1,11 @@
 import paypal from "paypal-rest-sdk";
 import fetch from "node-fetch";
 import btoa from "btoa";
-import { addCredits, claimPayment, isPaymentClaimed } from "./database";
-import { checkSubscriptionsForUser } from "./subscription";
+import { claimPayment, isPaymentClaimed } from "./paymentDbUtils";
+import { modifyCredits } from "../accounts/accountDbUtils";
+import { checkSubscriptionsForUser } from "../subscription/subscription";
 
-const config = require("../opalite.json");
+const config = require("../../opalite.json");
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
@@ -98,7 +99,7 @@ export function processPayment(req, res) {
                 .then(response => {
                     if (response.status == 'COMPLETED') {
                         isPaymentClaimed(req.query.paymentId, () => {
-                            addCredits(req.query.uid, response.purchase_units[0].amount.value * 100);
+                            modifyCredits(req.query.uid, response.purchase_units[0].amount.value * 100);
                             claimPayment(req.query.paymentId, req.query.uid);
                             checkSubscriptionsForUser(req.query.uid);
                         });

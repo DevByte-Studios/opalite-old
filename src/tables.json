@@ -86,6 +86,27 @@
             ]
         },
         {
+            "name": "creditTransactions",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "user",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "amount",
+                    "type": "INTEGER"
+                }
+            ]
+        },
+        {
             "name": "logs",
             "columns": [
                 {

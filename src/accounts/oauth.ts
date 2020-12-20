@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
-import { discordRegister } from "./database";
 import { URLSearchParams } from "url"
+import { discordRegister } from "./accountDbUtils";
 
 export function authorize(config, req, res) {
     let params = new URLSearchParams();
