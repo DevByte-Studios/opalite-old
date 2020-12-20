@@ -52,7 +52,7 @@ app.get("/admin", (req, res) => {
             if (user.permission == 0) {
                 res.redirect("/dashboard");
             } else {
-                res.render("../templates/admin.ejs", {});
+                res.render("../templates/admin/admin.ejs", {});
             }
         });
     } else
