@@ -59,7 +59,7 @@ app.get("/admin", (req, res) => {
         res.redirect("/login");
 });
 
-app.get("/login/*", (req, res) => {
+app.get("/login*", (req, res) => {
     res.redirect("https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=http%3A%2F%2Flocalhost%2Fauthorize&response_type=code&scope=identify");
 });
 
