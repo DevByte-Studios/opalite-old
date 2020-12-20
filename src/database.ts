@@ -14,6 +14,7 @@ export async function init() {
 
 export async function discordRegister(discordId: string, callback) {
     db.get("SELECT uid, permission FROM users WHERE discord=?", [discordId], (err, row) => {
+        console.log(discordId);
         if (row == undefined) {
             const flake = simpleflake().toString(36) + "";
             db.run("INSERT INTO users(uid, discord, credits, permission) VALUES (?, ?, ?, ?)", [flake , discordId, 0, 0]);
