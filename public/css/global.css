@@ -83,10 +83,20 @@ a:hover {
     font-size: 24px;
 }
 
+.games-supported {
+    margin-top: 100px
+}
+
+.games-supported .row {
+    justify-content: space-between!important;
+}
+
 .game-box {
     background-color: #fff;
     padding: 25px;
     border-radius: 28px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
 }
 
 .game-box img {
@@ -97,6 +107,10 @@ a:hover {
 .game-box h4 {
     margin-top: 14px;
     text-transform: uppercase;
+}
+
+.game-box:hover {
+    box-shadow: none!important;
 }
 
 
