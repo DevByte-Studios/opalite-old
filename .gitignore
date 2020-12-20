@@ -1,5 +1,6 @@
 dist/
 opalite.json
+opalite.db
 
 # Logs
 logs
