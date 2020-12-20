@@ -9,7 +9,7 @@ export async function buyProcess(req, res) {
                 db.addCredits(user.uid, -500);
                 const flake = simpleflake().toString(36) + "";
                 let currDate = Math.floor(Date.now() / 1000);
-                db.db.run("INSERT INTO products (uid, owner, initiatedAt, nextDue, state, notified) VALUES (?, ?, ?, ?, ?, ß)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active", 0]);
+                db.db.run("INSERT INTO products (uid, owner, initiatedAt, nextDue, state, notified) VALUES (?, ?, ?, ?, ?, ?)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active", 0]);
                 console.log("activated product");
                 res.redirect("/dashboard");
             }
