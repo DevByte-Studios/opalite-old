@@ -1,8 +1,16 @@
 /* dashboard */
 
+float-left {
+    float: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
 #bottomNav.navbar {
-    padding-top: 0!important;
-    padding-bottom: 0!important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 #bottomNav {
@@ -11,14 +19,14 @@
 }
 
 #bottomNav.navbar-light .navbar-nav .nav-link {
-    color: #fff!important;
+    color: #fff !important;
     font-weight: 400;
     letter-spacing: 1px;
     padding: 1rem 1rem;
 }
 
 #bottomNav.navbar-light .navbar-nav .nav-link.active {
-    color: var(--main)!important;
+    color: var(--main) !important;
     border-bottom: 2px solid var(--main)
 }
 
@@ -26,28 +34,83 @@
     margin-top: 200px
 }
 
-.stat-card {
-    padding: 30px;
-    border-radius: var(--border-radius);
-    background-color: #fff;
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #ffffff;
+    background-clip: border-box;
+    color: #000;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.stat-card h6 {
-    font-size: 26px;
+.card:hover {
+    box-shadow: none!important;
 }
 
-.stat-card i {
-    font-size: 62px;
-    color: var(--main);
-    opacity: .3;
-    transform: scale(2);
+.card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
 }
 
-.stat-card p {
-    font-size: 48px;
+.card-title {
+    margin-bottom: 1.25rem;
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon i {
+    font-size: 2.25rem;
+}
+
+.icon-shape {
+    display: inline-flex;
+    padding: 12px;
+    text-align: center;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-shape i {
+    font-size: 1.25rem;
+}
+
+.bg-color-services {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, .3)
+}
+
+.bg-color-noti {
+    color: #ffb108;
+    background-color: rgba(255, 177, 8, .3)
+}
+
+.bg-color-ref {
+    color: #0898ff;
+    background-color: rgba(8, 152, 255, .3)
+}
+
+.bg-color-credits {
+    color: #24bf27;
+    background-color: rgba(36, 191, 39, .3)
+}
+
+.text-success {
+    color: #00e05d!important;
+}
+
+.transactions p {
+    border-top: 1px solid #000;
     margin-bottom: 0;
-}
-
-.text-right {
-    text-align: right;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
