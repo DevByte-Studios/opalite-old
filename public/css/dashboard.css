@@ -1,0 +1,53 @@
+/* dashboard */
+
+#bottomNav.navbar {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+#bottomNav {
+    background-color: var(--bg-secondary);
+    color: #fff;
+}
+
+#bottomNav.navbar-light .navbar-nav .nav-link {
+    color: #fff!important;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 1rem 1rem;
+}
+
+#bottomNav.navbar-light .navbar-nav .nav-link.active {
+    color: var(--main)!important;
+    border-bottom: 2px solid var(--main)
+}
+
+#dash-content {
+    margin-top: 200px
+}
+
+.stat-card {
+    padding: 30px;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+}
+
+.stat-card h6 {
+    font-size: 26px;
+}
+
+.stat-card i {
+    font-size: 62px;
+    color: var(--main);
+    opacity: .3;
+    transform: scale(2);
+}
+
+.stat-card p {
+    font-size: 48px;
+    margin-bottom: 0;
+}
+
+.text-right {
+    text-align: right;
+}

@@ -2,19 +2,46 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard</title>
-    <%- include('head', {}); %>
+    <title>OPALITE</title>
+    <%- include('head', {page: `dashboard`}); %>
 </head>
 
 <body>
-    Hey! Your id: <%= user.userId %> You have <%= user.credits %><br />
-    <a href="/create?amount=5">Pay 5</a> <br />
-    <a href="/create?amount=20">Pay 20</a>
-    These are your products:
-    <% products.forEach((product => { %>
+    <div class="header" id="home">
+        <%- include('navbar', {page: `dashboard`, isLoggedIn: true}); %>
+    </div>
+
+    <section id="dash-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-card shadow">
+                        <h6>Active Services</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="col-md-12 my-auto text-right">
+                                        <p>3</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        Hey! Your id: <%= user.userId %> You have <%= user.credits %><br />
+        <a href="/create?amount=5">Pay 5</a> <br />
+        <a href="/create?amount=20">Pay 20</a>
+        These are your products:
+        <% products.forEach((product => { %>
         <%= product.uid + " is next due " + new Date(product.nextDue * 1000).toLocaleString()%>
-    <% }))%>
-    <a href="/buy">Buy a new one</a>
+        <% }))%>
+        <a href="/buy">Buy a new one</a>
+    </section>
 </body>
 
 </html>

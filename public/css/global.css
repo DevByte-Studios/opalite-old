@@ -147,7 +147,7 @@ a:hover {
     position: absolute;
     top: 30%;
     width: 560.89px;
-    height: 486.02px;
+    height: 521.02px;
     right: 250px;
     background-image: url(../img/triangle.png);
     background-size: cover;
@@ -170,7 +170,7 @@ a:hover {
     font-size: 18px;
 }
 
-.header .text-container {
+.header .text-container, {
     margin-top: 150px
 }
 
@@ -400,6 +400,8 @@ svg.bottom {
     font-size: 32px;
     color: #fff;
 }
+
+/* Footer */
 
 footer {
     background-color: var(--bg-secondary);
