@@ -52,22 +52,30 @@ app.get("/admin", (req, res) => {
             if (user.permission == 0) {
                 res.redirect("/dashboard");
             } else {
-                res.render("../templates/admin.ejs", {});
+                res.render("../templates/admin/admin.ejs", {});
             }
         });
     } else
         res.redirect("/login");
 });
 
-app.get("/login*", (req, res) => {
-    res.redirect("https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=http%3A%2F%2Flocalhost%2Fauthorize&response_type=code&scope=identify");
+app.get("/login", (req, res) => {
+    let redirectUrl = "http://localhost/oauth2/authorize";
+    if (req.query.redirect)
+        redirectUrl += "?redirect=" + req.query.redirect;
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=${encodeURIComponent(redirectUrl)}&response_type=code&scope=identify`);
 });
 
-app.get("/authorize", (req, res) => {
+app.get("/signout", (req, res) => {
+    req.session.destroy(() => { });
+    res.redirect("/");
+});
+
+app.get("/oauth2/authorize", (req, res) => {
     authorize(config, req, res);
 });
 
-app.get('/create', function(req, res) {
+app.get('/buyCredits', function(req, res) {
     initPayment(req, res);
 });
 
@@ -75,7 +83,7 @@ app.get('/process', function(req, res) {
     processPayment(req, res);
 });
 
-app.get("/buy", (req, res) => {
+app.get("/buyProduct", (req, res) => {
     buyProcess(req, res);
 });
 
