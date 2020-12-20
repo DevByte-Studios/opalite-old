@@ -66,6 +66,11 @@ app.get("/login", (req, res) => {
     res.redirect(`https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=${encodeURIComponent(redirectUrl)}&response_type=code&scope=identify`);
 });
 
+app.get("/signout", (req, res) => {
+    req.session.destroy(() => { });
+    res.redirect("/");
+});
+
 app.get("/oauth2/authorize", (req, res) => {
     authorize(config, req, res);
 });
