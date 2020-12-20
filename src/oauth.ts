@@ -20,11 +20,9 @@ export function authorize(config, req, res) {
                     res.redirect("/");
                     return;
                 }
-                console.log(dcResponse);
                 discordRegister(dcResponse.id + "", (id, permission) => {
-                    console.log(id);
                     req.session["user"] = id;
-                    req.session["discord-info"] = response;
+                    req.session["discord-info"] = dcResponse;
                     req.session["permission"] = permission;
 
                     if (req.query.redirect)
