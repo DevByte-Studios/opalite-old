@@ -1,7 +1,9 @@
 import { authorize, loginRedirect } from "../accounts/oauth";
 import { initPayment, processPayment } from "../payment/paypal";
 import { buyProcess } from "../store";
-import { handleAdmin, handleDashboard, handleDashboardContent, handleIndex, handleSignout } from "./defaultDestinations";
+import { handleAdmin } from "./admin/adminRoutes";
+import { handleDashboard, handleDashboardContent, handleSignout } from "./dashboard/dashboardRoutes";
+import { handleIndex } from "./index/indexRoutes";
 
 export const routes = {
     homepage: {
