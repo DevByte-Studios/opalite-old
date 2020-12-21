@@ -30,7 +30,7 @@ h4.wb img {
 
 #bottomNav.navbar-light .navbar-nav .nav-link.active {
     color: var(--main) !important;
-    border-bottom: 2px solid var(--main)
+    /* border-bottom: 2px solid var(--main) */
     /* border-bottom: 2px solid var(--main) */
 }
 

@@ -88,7 +88,7 @@
                         <a class="nav-link" href="#buy">DEPLOY AN APPLICATION</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto text-right">
+                <ul class="navbar-nav ml-auto text-right" id="second-navbar-ul">
                     <li class="nav-item" id="nav-item-5" onclick="navItemClick(5)">
                         <a class="nav-link" href="#buy">PURCHASE CREDITS</a>
                     </li>
@@ -105,6 +105,16 @@
                         if (id != 1)
                             for (let i = 1; i < id; i++)
                                 offset += document.getElementById("nav-item-" + i).getBoundingClientRect().width;
+
+                        if (id == 5) {
+                            let px = window.getComputedStyle(
+                                document.getElementById("second-navbar-ul")
+                            ).margin.split(" ")[3];
+                            px = px.substr(0,  px.length - 2);
+                            offset += parseFloat(px);
+                            console.log(offset);
+                        }
+
                         navSlider.style.left = offset + "px";
                         $("#dash-content").html = "";
                         $("#dash-content").load("/dashboard/" + id + "");
