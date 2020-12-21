@@ -52,7 +52,7 @@ h4.wb img {
     min-width: 0;
     word-wrap: break-word;
     border: 1px solid rgba(0, 0, 0, .05);
-    border-radius: .375rem;
+    border-radius: var(--border-radius);
     background-color: #ffffff;
     background-clip: border-box;
     color: #000;
@@ -132,6 +132,7 @@ h4.wb img {
 
 .credit-Btn {
     background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .05);
     padding: 10px;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -140,6 +141,7 @@ h4.wb img {
 
 .payment-Btn, .checkout-Btn {
     background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .05);
     padding: 30px;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -153,6 +155,11 @@ h4.wb img {
 .checkout-Btn {
     color: var(--main);
     background-color:var(--bg-secondary)
+}
+
+.checkout-Btn:hover {
+    background-color: #000;
+    color: #fff;
 }
 
 .credit-Btn h4, .checkout-Btn h4 {
