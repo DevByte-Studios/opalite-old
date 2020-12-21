@@ -151,7 +151,8 @@ h4.wb img {
 }
 
 .checkout-Btn {
-    color: green
+    color: var(--main);
+    background-color:var(--bg-secondary)
 }
 
 .credit-Btn h4, .checkout-Btn h4 {
@@ -164,4 +165,8 @@ h4.wb img {
 
 .credit-Btn:hover, .payment-Btn:hover, .checkout-Btn:hover {
     box-shadow: none!important
+}
+
+.inactive {
+    filter: saturate(0) opacity(.7)
 }
