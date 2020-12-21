@@ -1,12 +1,14 @@
 import { authorize, loginRedirect } from "../accounts/oauth";
 import { initPayment, processPayment } from "../payment/paypal";
 import { buyProcess } from "../store";
-import { handleAdmin, handleDashboard, handleDashboardContent, handleIndex, handleSignout } from "./defaultDestinations";
+import { handleAdmin } from "./admin/adminRoutes";
+import { handleDashboard, handleDashboardContent, handleSignout } from "./dashboard/dashboardRoutes";
+import { handleIndex } from "./index/indexRoutes";
 
 export const routes = {
     homepage: {
         url: "/",
-        destination: handleIndex
+    destination: handleIndex
     },
     dashboard: {
         url: "/dashboard",
@@ -29,15 +31,15 @@ export const routes = {
         destination: authorize
     },
     processCreditPurchase: {
-        url: "/buyCredits",
+        url: "/purchase/credits",
         destination: initPayment
     },
     paypalProcess: {
-        url: "/process",
+        url: "/paypal/process",
         destination: processPayment
     },
-    buyProduct: {
-        url: "/buyProduct",
+    processProductPurchase: {
+        url: "/purchase/product",
         destination: buyProcess
     },
     dashboardContent: {
