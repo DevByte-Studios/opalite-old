@@ -1,6 +1,7 @@
 import { simpleflake } from "simpleflakes";
 import { getUser, modifyCredits } from "./accounts/accountDbUtils";
 import { db } from "./database";
+import { routes } from "./express/router";
 import { subscriptionsLength } from "./subscription/subscription";
 
 export async function buyProcess(req, res) {
@@ -12,9 +13,9 @@ export async function buyProcess(req, res) {
                 let currDate = Math.floor(Date.now() / 1000);
                 db.run("INSERT INTO products (uid, owner, initiatedAt, nextDue, state, notified) VALUES (?, ?, ?, ?, ?, ?)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active", 0]);
                 console.log("activated product");
-                res.redirect("/dashboard");
+                res.redirect(routes.dashboard);
             }
         });
     } else
-        res.redirect("/login");
+        res.redirect(routes.loginRedirect.url);
 }

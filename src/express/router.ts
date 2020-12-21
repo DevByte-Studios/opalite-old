@@ -8,7 +8,7 @@ import { handleIndex } from "./index/indexRoutes";
 export const routes = {
     homepage: {
         url: "/",
-        destination: handleIndex
+    destination: handleIndex
     },
     dashboard: {
         url: "/dashboard",
@@ -31,15 +31,15 @@ export const routes = {
         destination: authorize
     },
     processCreditPurchase: {
-        url: "/buyCredits",
+        url: "/purchase/credits",
         destination: initPayment
     },
     paypalProcess: {
-        url: "/process",
+        url: "/paypal/process",
         destination: processPayment
     },
-    buyProduct: {
-        url: "/buyProduct",
+    processProductPurchase: {
+        url: "/purchase/product",
         destination: buyProcess
     },
     dashboardContent: {

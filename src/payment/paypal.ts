@@ -4,6 +4,7 @@ import btoa from "btoa";
 import { claimPayment, isPaymentClaimed } from "./paymentDbUtils";
 import { modifyCredits } from "../accounts/accountDbUtils";
 import { checkSubscriptionsForUser } from "../subscription/subscription";
+import { routes } from "../express/router";
 
 const config = require("../../opalite.json");
 
@@ -31,8 +32,8 @@ export function initPayment(req, res) {
     var payReq = JSON.stringify({
         'intent':'sale',
         'redirect_urls':{
-            'return_url' : 'http://localhost/process?uid=' + req.session["user"],
-            'cancel_url' : 'http://localhost/dashboard'
+            'return_url' : 'http://localhost' + routes.paypalProcess.url + '?uid=' + req.session["user"],
+            'cancel_url': 'http://localhost' + routes.dashboard.url
         },
         'payer':{
             'payment_method':'paypal'
