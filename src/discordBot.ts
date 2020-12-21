@@ -1,6 +1,5 @@
 import * as Discord from "discord.js";
-import { cache } from "ejs";
-import { checkSubscriptions } from "./subscription";
+import { checkSubscriptions } from "./subscription/subscription";
 const config = require("../opalite.json");
 
 const client = new Discord.Client();

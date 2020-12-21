@@ -1,8 +1,10 @@
 import fetch from "node-fetch";
-import { discordRegister } from "./database";
 import { URLSearchParams } from "url"
+import { discordRegister } from "./accountDbUtils";
 
-export function authorize(config, req, res) {
+const config = require("../../opalite.json");
+
+export function authorize(req, res) {
     let params = new URLSearchParams();
     params.append("client_id", config.clientId);
     params.append("client_secret", config.secret);
@@ -32,4 +34,11 @@ export function authorize(config, req, res) {
                 });
         });
     });
+}
+
+export async function loginRedirect(req, res) {
+    let redirectUrl = "http://localhost/oauth2/authorize";
+    if (req.query.redirect)
+        redirectUrl += "?redirect=" + req.query.redirect;
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=${encodeURIComponent(redirectUrl)}&response_type=code&scope=identify`);
 }
