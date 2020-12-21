@@ -14,19 +14,45 @@ paypal.configure({
     'client_secret': config.paypal_secret
 });
 
+const packages = [
+    {
+        credits: 500,
+        price: 4.99
+    },
+    {
+        credits: 1000,
+        price: 9.99
+    },
+    {
+        credits: 5000,
+        price: 44.99
+    },
+    {
+        credits: 10000,
+        price: 79.99
+    }
+]
+
 export function initPayment(req, res) {
     if (!req.session["user"]) {
         res.redirect("/");
         return;
     }
-    if (!req.query.amount) {
+    if (!req.query.credits) {
         res.redirect("/");
         return;
     }
-    if (req.query.amount < 5) {
+
+    let price = 0;
+    packages.forEach(pack => {
+        if (pack.credits == req.query.credits) {
+            console.log("found");
+            price = pack.price;
+        }
+    });
+
+    if (price == 0)
         res.redirect("/");
-        return;
-    }
 
     //build PayPal payment request
     var payReq = JSON.stringify({
@@ -40,10 +66,10 @@ export function initPayment(req, res) {
         },
         'transactions':[{
             'amount':{
-                'total' : req.query.amount,
+                'total' : price,
                 'currency' : 'USD',
             },
-            'description' : `Updating users virtual balance (+${req.query.amount * 100})`
+            'description' : `Updating users virtual balance (+${req.query.credits})`
         }]
     });
 
@@ -100,8 +126,18 @@ export function processPayment(req, res) {
                 .then(response => {
                     if (response.status == 'COMPLETED') {
                         isPaymentClaimed(req.query.paymentId, () => {
-                            modifyCredits(req.query.uid, response.purchase_units[0].amount.value * 100);
                             claimPayment(req.query.paymentId, req.query.uid);
+
+                            let credits = 0;
+                            packages.forEach(pack => {
+                                if (pack.price == response.purchase_units[0].amount.value)
+                                    credits = pack.credits;
+                            });
+                            if (credits == 0)
+                                credits = response.purchase_units[0].amount.value * 100;
+
+                            modifyCredits(req.query.uid, credits);
+                            
                             checkSubscriptionsForUser(req.query.uid);
                         });
                         res.redirect("/dashboard");
