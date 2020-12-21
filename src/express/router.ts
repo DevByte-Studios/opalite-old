@@ -45,6 +45,10 @@ export const routes = {
     dashboardContent: {
         url: "/dashboard/*",
         destination: handleDashboardContent
+    },
+    notFound: {
+        url: "*",
+        destination: handleNotFound
     }
 };
 
@@ -55,4 +59,8 @@ export async function addRoutes(app) {
 
         app[method](route.url, route.destination);
     })
+}
+
+export async function handleNotFound(req, res) {
+    res.status(404).render("../templates/notFound.ejs");
 }
