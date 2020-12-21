@@ -87,30 +87,32 @@
                     <li class="nav-item" id="nav-item-4" onclick="navItemClick(4)">
                         <a class="nav-link" href="#buy">DEPLOY AN APPLICATION</a>
                     </li>
-                    <script defer>
-                        const navSlider = document.getElementById("nav-slider");
-
-                        function navItemClick(id) {
-                            document.querySelector(".nav-link.active").classList.remove("active");
-                            document.getElementById("nav-item-" + id).children[0].classList.add("active");
-                            navSlider.style.width =
-                                document.getElementById("nav-item-" + id).getBoundingClientRect().width + "px";
-                            let offset = 0;
-                            if (id != 1)
-                                for (let i = 1; i < id; i++)
-                                    offset += document.getElementById("nav-item-" + i).getBoundingClientRect().width;
-                            navSlider.style.left = offset + "px";
-                            $("#dash-content").html = "";
-                            $("#dash-content").load("/dashboard/"+id+"");
-                        }
-                        document.getElementById("nav-item-1").click();
-                    </script>
                 </ul>
                 <ul class="navbar-nav ml-auto text-right">
-                    <li class="nav-item" id="nav-item-4" onclick="navItemClick(4)">
+                    <li class="nav-item" id="nav-item-5" onclick="navItemClick(5)">
                         <a class="nav-link" href="#buy">PURCHASE CREDITS</a>
                     </li>
                 </ul>
+                <script defer>
+                    const navSlider = document.getElementById("nav-slider");
+
+                    function navItemClick(id) {
+                        document.querySelector(".nav-link.active").classList.remove("active");
+                        document.getElementById("nav-item-" + id).children[0].classList.add("active");
+                        navSlider.style.width =
+                            document.getElementById("nav-item-" + id).getBoundingClientRect().width + "px";
+                        let offset = 0;
+                        if (id != 1)
+                            for (let i = 1; i < id; i++)
+                                offset += document.getElementById("nav-item-" + i).getBoundingClientRect().width;
+                        navSlider.style.left = offset + "px";
+                        $("#dash-content").html = "";
+                        $("#dash-content").load("/dashboard/" + id + "");
+                    }
+                    $(document).ready(function () {
+                        document.getElementById("nav-item-1").click();
+                    })
+                </script>
             </div>
         </div>
     </nav>

@@ -129,3 +129,39 @@ h4.wb img {
 .nav-slider {
     position: absolute;
 }
+
+.credit-Btn {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.payment-Btn, .checkout-Btn {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.credit-Btn .get-started, .payment-Btn .get-started {
+    border-radius: var(--border-radius);
+}
+
+.checkout-Btn {
+    color: green
+}
+
+.credit-Btn h4, .checkout-Btn h4 {
+    margin-bottom: 0;
+}
+
+.payment-Btn img {
+    height: 64px
+}
+
+.credit-Btn:hover, .payment-Btn:hover, .checkout-Btn:hover {
+    box-shadow: none!important
+}

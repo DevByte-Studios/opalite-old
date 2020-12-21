@@ -230,7 +230,7 @@ a:hover {
     transform: scale(1.03);
 }
 
-.game-box:hover .get-started, .pricing-box:hover .get-started {
+.game-box:hover .get-started, .pricing-box:hover .get-started, .credit-Btn.selected .get-started, .payment-Btn.selected .get-started {
     visibility: visible;
     opacity: 1;
 }
