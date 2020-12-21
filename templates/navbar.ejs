@@ -41,15 +41,15 @@
 
                 <ul class="navbar-nav text-right">
                     <% if (isLoggedIn) { %>
-                        <% if (page == "index") { %>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dashboard">DASHBOARD</a>
-                            </li>
-                            <% } else { %>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/signout">SIGN OUT</a>
-                                </li>
-                        <% } %>
+                    <% if (page == "index") { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">DASHBOARD</a>
+                    </li>
+                    <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signout">SIGN OUT</a>
+                    </li>
+                    <% } %>
                     <% } else {%>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">SIGN IN</a>
@@ -89,16 +89,19 @@
                     </li>
                     <script defer>
                         const navSlider = document.getElementById("nav-slider");
+
                         function navItemClick(id) {
                             document.querySelector(".nav-link.active").classList.remove("active");
                             document.getElementById("nav-item-" + id).children[0].classList.add("active");
-                            navSlider.style.width = 
+                            navSlider.style.width =
                                 document.getElementById("nav-item-" + id).getBoundingClientRect().width + "px";
                             let offset = 0;
                             if (id != 1)
                                 for (let i = 1; i < id; i++)
                                     offset += document.getElementById("nav-item-" + i).getBoundingClientRect().width;
                             navSlider.style.left = offset + "px";
+                            $("#dash-content").html = "";
+                            $("#dash-content").load("/dashboard/"+id+"");
                         }
                         document.getElementById("nav-item-1").click();
                     </script>
