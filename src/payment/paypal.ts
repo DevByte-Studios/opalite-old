@@ -46,7 +46,6 @@ export function initPayment(req, res) {
     let price = 0;
     packages.forEach(pack => {
         if (pack.credits == req.query.credits) {
-            console.log("found");
             price = pack.price;
         }
     });
