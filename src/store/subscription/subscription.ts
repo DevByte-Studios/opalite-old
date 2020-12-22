@@ -1,4 +1,4 @@
-import { getUser, modifyCredits } from "../accounts/accountDbUtils";
+import { getUser } from "../accounts/accountDbUtils";
 import { db } from "../database";
 import { deactivateSub, notify, renewSub, suspendSub } from "./subscriptionUtils";
 

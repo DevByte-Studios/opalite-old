@@ -1,7 +1,7 @@
 import { simpleflake } from "simpleflakes";
+import { routes } from "../express/router";
 import { getUser, modifyCredits } from "./accounts/accountDbUtils";
 import { db } from "./database";
-import { routes } from "./express/router";
 import { subscriptionsLength } from "./subscription/subscription";
 
 export async function buyProcess(req, res) {

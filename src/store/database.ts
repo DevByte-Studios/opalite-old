@@ -1,6 +1,7 @@
-import { tables } from "./tables.json";
 import sqlite3_, { Database } from "sqlite3";
 import path from "path";
+
+import { tables } from "./tables.json";
 
 const sqlite3 = sqlite3_.verbose();
 export var db: Database;

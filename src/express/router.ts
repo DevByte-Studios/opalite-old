@@ -1,14 +1,15 @@
-import { authorize, loginRedirect } from "../accounts/oauth";
-import { initPayment, processPayment } from "../payment/paypal";
-import { buyProcess } from "../store";
-import { handleAdmin } from "./admin/adminRoutes";
-import { handleDashboard, handleDashboardContent, handleSignout } from "./dashboard/dashboardRoutes";
-import { handleIndex } from "./index/indexRoutes";
+import { authorize, loginRedirect } from "../store/accounts/oauth";
+import { initPayment, processPayment } from "../store/payment/paypal";
+import { buyProcess } from "../store/store";
+import { handleAdmin } from "../store/routes/admin/adminRoutes";
+import { handleDashboard, handleDashboardContent, handleSignout } from "../store/routes/dashboard/dashboardRoutes";
+import { handleIndex } from "../store/routes/index/indexRoutes";
+
 
 export const routes = {
     homepage: {
         url: "/",
-    destination: handleIndex
+        destination: handleIndex
     },
     dashboard: {
         url: "/dashboard",

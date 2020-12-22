@@ -1,5 +1,5 @@
 import { getUser } from "../../accounts/accountDbUtils";
-import { routes } from "../router";
+import { routes } from "../../../express/router";
 
 export async function handleAdmin(req, res) {
     if (req.session["user"]) {

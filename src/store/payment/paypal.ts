@@ -2,11 +2,11 @@ import paypal from "paypal-rest-sdk";
 import fetch from "node-fetch";
 import btoa from "btoa";
 import { claimPayment, isPaymentClaimed } from "./paymentDbUtils";
+import { routes } from "../../express/router";
 import { modifyCredits } from "../accounts/accountDbUtils";
 import { checkSubscriptionsForUser } from "../subscription/subscription";
-import { routes } from "../express/router";
 
-const config = require("../../opalite.json");
+const config = require("../../../opalite.json");
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
