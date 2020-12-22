@@ -1,6 +1,6 @@
 import { modifyCredits } from "../accounts/accountDbUtils";
-import { db } from "../database";
-import { notifyPrior } from "../discordBot";
+import { db } from "../db/database";
+import { notifyPrior } from "../discordBot/discordBot";
 import { subscriptionsLength } from "./subscription";
 
 export function deactivateSub(subscription) {

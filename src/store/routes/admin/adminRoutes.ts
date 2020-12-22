@@ -1,5 +1,4 @@
 import { getUser } from "../../accounts/accountDbUtils";
-import { routes } from "../../../express/router";
 
 export async function handleAdmin(req, res) {
     if (req.session["user"]) {
@@ -11,5 +10,5 @@ export async function handleAdmin(req, res) {
             }
         });
     } else
-        res.redirect(routes.loginRedirect.url);
+        res.redirect("/login");
 }

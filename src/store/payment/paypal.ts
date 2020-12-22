@@ -2,7 +2,6 @@ import paypal from "paypal-rest-sdk";
 import fetch from "node-fetch";
 import btoa from "btoa";
 import { claimPayment, isPaymentClaimed } from "./paymentDbUtils";
-import { routes } from "../../express/router";
 import { modifyCredits } from "../accounts/accountDbUtils";
 import { checkSubscriptionsForUser } from "../subscription/subscription";
 
@@ -57,8 +56,8 @@ export function initPayment(req, res) {
     var payReq = JSON.stringify({
         'intent':'sale',
         'redirect_urls':{
-            'return_url' : 'http://localhost' + routes.paypalProcess.url + '?uid=' + req.session["user"],
-            'cancel_url': 'http://localhost' + routes.dashboard.url
+            'return_url' : 'http://localhost' + "/paypal/process" + '?uid=' + req.session["user"],
+            'cancel_url': 'http://localhost' + "/dashboard"
         },
         'payer':{
             'payment_method':'paypal'

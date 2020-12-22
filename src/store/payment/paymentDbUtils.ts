@@ -1,4 +1,4 @@
-import { db } from "../database";
+import { db } from "../db/database";
 
 export async function isPaymentClaimed(paymentID: string, callback) {
   db.get("SELECT claimedAt FROM transactions WHERE id=?", [paymentID], (err, row) => {

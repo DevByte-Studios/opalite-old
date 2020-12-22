@@ -1,5 +1,5 @@
 import { getUser } from "../accounts/accountDbUtils";
-import { db } from "../database";
+import { db } from "../db/database";
 import { deactivateSub, notify, renewSub, suspendSub } from "./subscriptionUtils";
 
 export const subscriptionsLength = 30 * 24 * 60 * 60;

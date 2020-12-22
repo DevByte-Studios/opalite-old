@@ -1,5 +1,5 @@
-import { db } from "../database";
-import { getSnowflake, getTimestamp } from "../utils/dataUtils";
+import { db } from "../db/database";
+import { getSnowflake, getTimestamp } from "../utils/data";
 
 export async function discordRegister(discordId: string, callback) {
   db.get("SELECT uid, permission FROM users WHERE discord=?", [discordId], (err, row) => {

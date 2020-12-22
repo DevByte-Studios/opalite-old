@@ -1,9 +1,5 @@
-import * as expressManager from "./express/expressManager";
-import * as db from "./store/database";
-import * as dcBot from "./store/discordBot";
+import * as express from "./express/proxy";
+import * as store from "./store/store";
 
-db.init();
-
-dcBot.init();
-
-expressManager.init();
+express.init();
+store.init();
