@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import { URLSearchParams } from "url"
 import { discordRegister } from "./accountDbUtils";
 
-const config = require("../../opalite.json");
+const config = require("../../../opalite.json");
 
 export function authorize(req, res) {
     let params = new URLSearchParams();

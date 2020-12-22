@@ -15,7 +15,7 @@ export async function handleDashboardContent(req, res) {
 
     let file = (req.url + "").split("/")[2];
     getUser(req.session["user"], (user) => {
-        res.render(`../templates/dashboard/${file}-content.ejs`, {
+        res.render(`../templates/store/dashboard/${file}-content.ejs`, {
             user,
             discord: req.session["discord-info"]
         });
@@ -29,7 +29,7 @@ export async function handleSignout(req, res) {
 
 export async function handleDashboard(req, res) {
     if (checkPermission(req, res))
-        res.render("../templates/dashboard.ejs");
+        res.render("../templates/store/dashboard.ejs");
     else
         res.redirect("/login");
 }

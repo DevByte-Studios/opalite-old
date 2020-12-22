@@ -7,7 +7,7 @@ export async function handleAdmin(req, res) {
             if (user.permission == 0) {
                 res.redirect("/dashboard");
             } else {
-                res.render("../templates/admin/admin.ejs", {});
+                res.render("../templates/store/admin/admin.ejs", {});
             }
         });
     } else

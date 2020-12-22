@@ -7,7 +7,7 @@ const sqlite3 = sqlite3_.verbose();
 export var db: Database;
 
 export async function init() {
-    db = new sqlite3.Database(path.join(__dirname, '../opalite.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => console.error);
+    db = new sqlite3.Database(path.join(__dirname, '../../opalite.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => console.error);
     initTables();
 }
 
