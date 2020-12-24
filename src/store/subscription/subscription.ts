@@ -7,8 +7,8 @@ const inactivePeriod = 2 * 24 * 60 * 60;
 const notifyPeriod = 10 * 24 * 60 * 60;
 
 export async function checkSubscriptionsForUser(user: string) {
-    db.all("SELECT * FROM products WHERE owner=?", [user], (err, rows) => {
-        rows.forEach(row => {
+    db.query("SELECT * FROM products WHERE owner=?", [user], (error, results, fields) => {
+        results.forEach(row => {
             checkSubscription(row);
         });
     });
@@ -35,8 +35,8 @@ async function checkSubscription(subscription): Promise<void> {
 }
 
 export async function checkSubscriptions() {
-    db.all("SELECT * FROM products", (err, rows) => {
-        rows.forEach(row => {
+    db.query("SELECT * FROM products", (error, results, fields) => {
+        results.forEach(row => {
             checkSubscription(row);
         });
     });

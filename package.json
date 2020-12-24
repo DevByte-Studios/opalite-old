@@ -25,17 +25,16 @@
     "@types/ejs": "^3.0.5",
     "@types/express": "^4.17.9",
     "@types/express-session": "^1.17.3",
-    "@types/sqlite3": "^3.1.6",
+    "@types/mysql": "^2.15.16",
     "btoa": "^1.2.1",
     "discord-oauth2": "^2.6.0",
     "discord.js": "^12.4.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
     "node-fetch": "^2.6.1",
-    "path-to-regexp": "^6.2.0",
     "paypal-rest-sdk": "^1.8.1",
-    "simpleflakes": "^2.1.0",
-    "sqlite3": "^5.0.0"
+    "simpleflakes": "^2.1.0"
   }
 }

@@ -1,5 +1,7 @@
-import * as express from "./express/proxy";
+import * as proxy from "./express/proxy";
 import * as store from "./store/store";
+import * as opalite from "./opalite/opalite";
 
-express.init();
+proxy.init();
 store.init();
+opalite.init();

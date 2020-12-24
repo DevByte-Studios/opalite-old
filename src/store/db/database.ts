@@ -1,13 +1,18 @@
-import sqlite3_, { Database } from "sqlite3";
-import path from "path";
+import mysql from "mysql";
+
+const config = require("../../../opalite.json");
 
 import { tables } from "./tables.json";
-
-const sqlite3 = sqlite3_.verbose();
-export var db: Database;
+export var db: mysql.Connection;
 
 export async function init() {
-    db = new sqlite3.Database(path.join(__dirname, '../../../opalite.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => console.error);
+    db = mysql.createConnection({
+        host     : 'db.hexaneweb.com',
+        user     : 'polited1_storedb',
+        password : 'WxUXh3NL#PlL',
+        database : 'polited1_storedb'
+    });
+
     initTables();
 }
 
@@ -22,6 +27,6 @@ function initTables() {
         sql = sql.substr(0, sql.length - 1); //to remove ',' at end
         sql += `)`;
 
-        db.run(sql);
+        db.query(sql);
     });
 }

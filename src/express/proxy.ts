@@ -1,22 +1,23 @@
 const http = require('http')
 const url = require('url')
 const port = 80
-const sites = {
-  localhost: 544,
-  other: 543
-}
+
+const storePort = 544;
+const productPort = 543;
+
+const storeDomain = "localhost";
 
 const proxy = http.createServer( (req, res) => {
-  // const { pathname: path } = url.parse(req.url)
   const path = req.url;
   const { method, headers } = req
   const hostname = headers.host.split(':')[0].replace('www.', '')
-  if (!sites.hasOwnProperty(hostname)) throw new Error(`invalid hostname ${hostname}`)
+
+  let forwardPort = (storeDomain == hostname) ? storePort : productPort;
 
   const proxiedRequest = http.request({
     hostname,
     path,
-    port: sites[hostname],
+    port: forwardPort,
     method,
     headers 
   })
