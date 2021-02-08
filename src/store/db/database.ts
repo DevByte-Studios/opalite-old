@@ -7,10 +7,10 @@ export var db: mysql.Connection;
 
 export async function init() {
     db = mysql.createConnection({
-        host     : 'db.hexaneweb.com',
-        user     : 'polited1_storedb',
-        password : 'WxUXh3NL#PlL',
-        database : 'polited1_storedb'
+        host     : '135.181.193.99',
+        user     : 'remote',
+        password : 'RL2fzm2mMFYgu8tk',
+        database : 'opalite'
     });
 
     initTables();
