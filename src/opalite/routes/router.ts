@@ -1,6 +1,7 @@
 import express from "express";
 import ExpressSession from "express-session";
 import path from "path";
+import { authorize, loginRedirect } from "../accounts/oauth";
 import { handleAdmin } from "./admin/adminRoutes";
 import { handleIndex } from "./index/indexRoutes";
 
@@ -14,6 +15,14 @@ export const routes = {
   adminDashboard: {
     url: "/admin",
     destination: handleAdmin
+  },
+  loginRedirect:  {
+      url: "/login",
+      destination: loginRedirect
+  },
+  processLogin: {
+      url: "/oauth2/authorize",
+      destination: authorize
   }
 };
 

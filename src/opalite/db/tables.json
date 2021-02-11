@@ -12,6 +12,10 @@
                     "type": "TEXT"
                 },
                 {
+                    "name": "description",
+                    "type": "TEXT"
+                },
+                {
                     "name": "keywords",
                     "type": "TEXT"
                 },
@@ -21,6 +25,61 @@
                 },
                 {
                     "name": "image",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        {
+            "name": "permissions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "display_name",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT"
+                }
+            ]
+        },
+        {
+            "name": "user_permissions",
+            "columns": [
+                {
+                    "name": "permission_id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "discord_id",
+                    "type": "INTEGER"
+                }
+            ]
+        },
+        {
+            "name": "users",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "discord",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "profile_picture",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "permission_level",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "role",
                     "type": "TEXT"
                 }
             ]
