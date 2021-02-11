@@ -1,0 +1,29 @@
+{
+    "tables": [
+        {
+            "name": "sitesettings",
+            "columns": [
+                {
+                    "name": "uid",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "title",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "keywords",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "theme",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "image",
+                    "type": "TEXT"
+                }
+            ]
+        }
+    ]
+}
