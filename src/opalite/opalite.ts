@@ -1,5 +1,5 @@
-import * as expressManager from "./express/expressManager";
+import * as router from "./routes/router";
 
 export function init() {
-  expressManager.init();
+  router.init();
 }
