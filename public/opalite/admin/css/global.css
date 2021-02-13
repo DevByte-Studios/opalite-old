@@ -1,0 +1,607 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+body {
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+    font-family: Poppins, Roboto, sans-serif;
+    font-size: .9rem;
+    height: 100vh;
+    margin: 0;
+    padding-top: 60px
+}
+
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    position: relative;
+    outline: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+
+
+.wrapper nav.navbar {
+    height: 60px;
+    padding: 0;
+    border-bottom: 1px solid
+}
+
+.wrapper nav.navbar .navbar-header .navbar-brand {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px
+}
+
+.wrapper nav.navbar .navbar-header .navbar-brand span {
+    display: none
+}
+
+.wrapper nav.navbar .nav-toggler-right {
+    position: relative
+}
+
+.wrapper nav.navbar .nav-toggler-right button {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: 1px solid #fff;
+    overflow: hidden;
+    border-radius: 50%
+}
+
+.wrapper nav.navbar .nav-toggler-right button img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center
+}
+
+.wrapper nav.navbar .nav-toggler-right .nav-alert {
+    right: 0;
+    border-width: 1px;
+    width: 9px;
+    height: 9px
+}
+
+.wrapper nav.navbar .nav-alert {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    border: 3px solid #1c1e21;
+    -webkit-transform: translateX(13px);
+    transform: translateX(13px)
+}
+
+@media (min-width:768px) {
+    .wrapper nav.navbar .nav-alert {
+        right: 20px;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+.wrapper nav.navbar .nav-alert.user-profile {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px)
+}
+
+.wrapper nav.navbar .navbar-header {
+    height: 100%;
+    display: flex;
+    align-items: center
+}
+
+.wrapper nav.navbar .user-profile span {
+    display: none
+}
+
+.wrapper nav.navbar .right-nav {
+    border-top: 1px solid;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: calc(100vh - 60px + 1px) !important
+}
+
+.wrapper nav.navbar .right-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap
+}
+
+.wrapper nav.navbar .right-nav ul li {
+    flex: 1 1 0;
+    max-width: 110px;
+    padding: 1rem
+}
+
+.wrapper nav.navbar .right-nav ul li .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center
+}
+
+.wrapper nav.navbar .right-nav ul li .nav-link .link-text {
+    margin-top: 10px;
+    font-size: .9rem;
+    text-transform: uppercase
+}
+
+.wrapper nav.navbar .nav-link {
+    padding: 0
+}
+
+.wrapper nav.navbar .nav-link i {
+    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 0
+}
+
+.wrapper nav.navbar .left-nav {
+    display: none
+}
+
+.wrapper nav.navbar .left-nav input.navbar-search {
+    max-width: 500px;
+    border-radius: 0;
+    border: none;
+    height: 40px;
+    font-size: .9rem
+}
+
+@media (min-width:768px) {
+    .wrapper nav.navbar .sidebar-toggler {
+        display: none
+    }
+
+    .wrapper nav.navbar .navbar-header {
+        width: 260px;
+        margin-left: 0 !important
+    }
+
+    .wrapper nav.navbar .navbar-header .navbar-brand span {
+        display: inline-block
+    }
+
+    .wrapper nav.navbar .left-nav {
+        display: flex
+    }
+
+    .wrapper nav.navbar .nav-link {
+        padding-left: .3rem;
+        padding-right: .3rem
+    }
+
+    .wrapper nav.navbar .nav-alert {
+        right: 12px
+    }
+
+    .wrapper nav.navbar .right-nav {
+        height: 100% !important;
+        border-top: none;
+        background: 0 0 !important
+    }
+
+    .wrapper nav.navbar .right-nav ul {
+        margin-left: auto;
+        flex-wrap: nowrap
+    }
+
+    .wrapper nav.navbar .right-nav ul li {
+        padding: 0
+    }
+
+    .wrapper nav.navbar .right-nav ul li .nav-link .link-text {
+        display: none
+    }
+}
+
+.wrapper main {
+    position: relative;
+    display: flex;
+    height: 100%
+}
+
+.wrapper main .sidebar {
+    height: 100%;
+    width: 302px;
+    position: absolute;
+    transition: left .3s ease;
+    left: -302px;
+    top: 0;
+    z-index: 111;
+    overflow: auto
+}
+
+.wrapper main .sidebar>div {
+    border-bottom: 1px solid
+}
+
+.wrapper main .sidebar>div:last-child {
+    border-bottom: none
+}
+
+.wrapper main .sidebar .sidebar-profile .user-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+.wrapper main .sidebar .sidebar-profile .user-picture img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center
+}
+
+.wrapper main .sidebar .sidebar-profile .profile-details .name {
+    font-size: .9rem;
+    font-weight: 800
+}
+
+.wrapper main .sidebar .sidebar-profile .profile-details .role {
+    font-size: .7rem;
+    letter-spacing: 1px;
+    font-weight: 700
+}
+
+.wrapper main .sidebar .sidebar-search {
+    display: none
+}
+
+.wrapper main .sidebar .sidebar-menu>div {
+    padding: 0 1.5rem
+}
+
+.wrapper main .sidebar .sidebar-menu .menu-header {
+    padding: 0 1.5rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    font-weight: 700
+}
+
+.wrapper main .sidebar .sidebar-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.wrapper main .sidebar .sidebar-menu ul li {
+    display: block
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 1.5rem;
+    font-size: .8rem;
+    letter-spacing: 0;
+    font-weight: 600
+}
+
+.wrapper main .sidebar .sidebar-menu ul li a span {
+    color: inherit;
+    margin-left: 1rem
+}
+
+@media (min-width:768px) {
+    .wrapper main .sidebar {
+        position: static;
+        height: 100%
+    }
+
+    .wrapper.pinned-sidebar .navbar-header {
+        width: 70px !important
+    }
+
+    .wrapper.pinned-sidebar .navbar-header span {
+        display: none !important
+    }
+
+    .wrapper.pinned-sidebar .sidebar {
+        width: 70px
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-profile .user-picture {
+        width: 40px;
+        height: 40px
+    }
+
+    .wrapper.pinned-sidebar .sidebar .menu-header,
+    .wrapper.pinned-sidebar .sidebar .profile-details,
+    .wrapper.pinned-sidebar .sidebar .view-source {
+        display: none
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-menu ul a {
+        padding: .5rem;
+        justify-content: center
+    }
+
+    .wrapper.pinned-sidebar .sidebar .sidebar-menu ul a span {
+        display: none
+    }
+}
+
+.wrapper.toggeled-sidebar .sidebar {
+    left: 0
+}
+
+.wrapper.default-theme {
+    background: #f2f3f8
+}
+
+.wrapper.default-theme nav.navbar {
+    background: #242939;
+    border-color: rgba(110, 120, 153, .3)
+}
+
+.wrapper.default-theme nav.navbar .navbar-brand {
+    color: #b9bece
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search {
+    background: #282f48;
+    color: #6e7899
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search::-webkit-input-placeholder {
+    color: rgba(110, 120, 153, .6)
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search::-moz-placeholder {
+    color: rgba(110, 120, 153, .6)
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search::-ms-input-placeholder {
+    color: rgba(110, 120, 153, .6)
+}
+
+.wrapper.default-theme nav.navbar .left-nav input.navbar-search::placeholder {
+    color: rgba(110, 120, 153, .6)
+}
+
+.wrapper.default-theme nav.navbar .right-nav {
+    background: #242939
+}
+
+.wrapper.default-theme nav.navbar .nav-link {
+    color: #6e7899
+}
+
+.wrapper.default-theme nav.navbar .nav-link i {
+    border-color: #6e7899;
+    background: #282f48
+}
+
+.wrapper.default-theme nav.navbar .nav-link:hover {
+    color: #9ba2b9
+}
+
+.wrapper.default-theme nav.navbar .nav-alert {
+    border-color: #2f3546
+}
+
+.wrapper.default-theme nav.navbar .nav-alert.notifications {
+    background-color: #ff61c5;
+    box-shadow: 0 0 4px #ff61c5
+}
+
+.wrapper.default-theme nav.navbar .nav-alert.messages {
+    background-color: #61b8ff;
+    box-shadow: 0 0 4px #61b8ff
+}
+
+.wrapper.default-theme main .overlay {
+    background: #242939
+}
+
+.wrapper.default-theme main .sidebar {
+    background: #fff
+}
+
+.wrapper.default-theme main .sidebar>div {
+    border-color: rgba(61, 68, 101, .1)
+}
+
+.wrapper.default-theme main .sidebar .sidebar-profile .name,
+.wrapper.default-theme main .sidebar a.sidebar-link {
+    color: #3d4465
+}
+
+.wrapper.default-theme main .sidebar .sidebar-profile .role {
+    color: rgba(61, 68, 101, .8)
+}
+
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-header {
+    color: rgba(61, 68, 101, .5)
+}
+
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a {
+    color: rgba(61, 68, 101, .7)
+}
+
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a i {
+    color: rgba(140, 165, 239, .6);
+    border: none;
+    width: auto;
+    font-size: 1rem
+}
+
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a.active,
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a:hover {
+    background: #f5f5f9;
+    color: rgba(61, 68, 101, .9)
+}
+
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a.active i,
+.wrapper.default-theme main .sidebar .sidebar-menu .menu-items a:hover i {
+    color: #95b0ff
+}
+
+.wrapper.default-theme .card {
+    box-shadow: 1px 1px 2px rgba(91, 101, 130, .1)
+}
+
+.wrapper.default-theme .card .card-title {
+    color: rgba(61, 68, 101, .8);
+    border-bottom: 1px solid #f2f3f8
+}
+
+.wrapper.default-theme .card .card-icon i {
+    color: #98a4c7
+}
+
+.wrapper.default-theme .card .card-footer {
+    border-top: 1px solid #f2f3f8;
+    background: 0 0
+}
+
+.wrapper.default-theme .table td,
+.wrapper.default-theme .table th {
+    border-top: 1px solid #ebedf4
+}
+
+.wrapper.default-theme .table thead th {
+    border-bottom: 2px solid #ebedf4
+}
+
+.wrapper.default-theme .table.table-hover tbody tr:hover,
+.wrapper.default-theme .table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f5f6fa
+}
+
+.wrapper.default-theme .btn {
+    font-size: .9rem
+}
+
+.wrapper.default-theme .btn.btn-lightning {
+    color: #f0f3ff;
+    background-color: #5b6582;
+    border-color: #5b6582
+}
+
+.wrapper.default-theme .btn.btn-lightning:hover {
+    background-color: #4c5671
+}
+
+.wrapper.default-theme .btn.btn-outline-lightning {
+    color: #5b6582;
+    background-color: transparent;
+    border-color: #5b6582
+}
+
+.wrapper.default-theme .btn.btn-outline-lightning:hover {
+    color: #f0f3ff;
+    background-color: #5b6582;
+    border-color: #5b6582
+}
+
+.wrapper.default-theme .form-control {
+    font-size: .9rem
+}
+
+.wrapper.default-theme .text-lightning {
+    color: #98a4c7
+}
+
+.card .card-icon i {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 3rem
+}
+
+.card .legend span:first-child {
+    width: 10px;
+    height: 10px
+}
+
+.icon-style,
+.wrapper main .sidebar .sidebar-menu ul li a i {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    border: 1px solid;
+    font-size: .9rem
+}
+
+.wrapper {
+    height: 100%
+}
+
+.wrapper main .pages {
+    overflow: auto
+}
+
+.wrapper main .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    opacity: .7;
+    display: none
+}
+
+.wrapper main .overlay.show {
+    display: block
+}
+
+@media (min-width:768px) {
+    .wrapper main .overlay.show {
+        display: none
+    }
+}
+
+.wrapper.toggeled-sidebar main .overlay {
+    display: block
+}
+
+@media (min-width:768px) {
+    .wrapper.toggeled-sidebar main .overlay {
+        display: none
+    }
+}
+
+.toast {
+    opacity: 1
+}

@@ -5,54 +5,349 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ Website Title }} | Admin Home</title>
-
+    <title>{{Website Title}}| Admin Home</title>
     <meta name="description" content="We create cool games and shit">
     <meta name="keywords" content="key, words, goes, here">
     <meta name="theme-color" content="#3884FF">
     <meta name="author" content="https://devbyte.studio/">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="opalite/admin/css/global.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 </head>
 
 <body>
-
-    <div class="nav">
-        <div class="nav-inner">
-            <div class="nav-logo">
-                <a href="#">
-                    <img src="assets/img/logo.png" alt="logo">
-                </a>
+    <div class="wrapper default-theme">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
+            <div class="navbar-header pl-2 pr-2 ml-3 text-center"> <a class="navbar-brand m-0 w-100" href="#"> <img
+                        alt="logo" src="opalite/img/logo.png" width="35px"> <span class="ml-1">Opalite</span> </a>
             </div>
-            <div class="nav-links">
-                <ul class="nav-ul">
-                    <li class="side-nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a class="nav-link" href="#">Forums</a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a class="nav-link" href="#">Store</a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a class="nav-link" href="#">Applications</a>
-                    </li>
+            <div class="sidebar-toggler ml-auto mr-3"> <a class="btn nav-link"> <i class="fa fa-bars"></i> </a> </div>
+            <div class="nav-toggler-right mr-4 d-md-none"> <button aria-controls="collapseBasic" class="" type="button"
+                    aria-expanded="false"> <img alt="" class="img-fluid" src="opalite/img/user.jpg"> </button> <span
+                    class="user-profile nav-alert bg-danger"></span> </div>
+            <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
+                <li class="nav-item navicon"> <a class="btn nav-link"> <i class="fa fa-bars"></i> </a> </li>
+                <li class="nav-item flex-fill"><input class="form-control navbar-search" placeholder="Search . . ."
+                        type="text"></li>
+            </ul>
+            <div class="collapse navbar-collapse right-nav" id="collapseBasic" aria-expanded="false" aria-hidden="true"
+                style="display: none;">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"> <a class="btn nav-link"> <i class="far fa-bell"></i> <span
+                                class="link-text">Alerts</span> <span class="nav-alert notifications"></span> </a> </li>
+                    <li class="nav-item"> <a class="btn nav-link"> <i class="far fa-envelope"></i> <span
+                                class="link-text">Messages</span> <span class="nav-alert messages"></span> </a> </li>
+                    <li class="nav-item"> <a class="btn nav-link"> <i class="far fa-user"></i> <span
+                                class="link-text">Profile</span> </a> </li>
+                    <li class="nav-item"> <a class="btn nav-link"> <i class="fas fa-cog"></i> <span
+                                class="link-text">Setting</span> </a> </li>
                 </ul>
             </div>
-            <div class="nav-account">
-                Welcome back, Joe
-            </div>
-        </div>
-    </div>
+        </nav>
 
+        <main>
+
+            <aside class="sidebar shadow-sm">
+
+                <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+                    <div class="picture-wrapper mb-4">
+                        <div class="user-picture m-auto">
+                            <img src="https://cdn.discordapp.com/avatars/<%= discord.id %>/<%= discord.avatar %>.webp?size=128"
+                                alt="<%= discord.username %>"" class=" img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="profile-details text-center pb-4">
+                        <p class="mb-0 text-uppercase name"><%= discord.username %></p>
+                        <small class="text-uppercase role">Administrator</small>
+                    </div>
+                </div>
+                <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+                    <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+                </div>
+                <nav class="sidebar-menu pt-3 pb-3">
+                    <div class="menu-header mt-3 mb-2">
+                        Components
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <a href="#" routerLink="/dashboard" class="active">
+                                <i class="fa fa-tv"></i>
+                                <span>Dashboard</span>
+                                <span class="badge badge-warning rounded-0 text-dark p-1">NEW</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" routerLink="/forms">
+                                <i class="fas fa-gem"></i>
+                                <span>Forms</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" routerLink="/tables">
+                                <i class="fa fa-table"></i>
+                                <span>Tables</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" routerLink="/typography">
+                                <i class="fa fa-align-center"></i>
+                                <span>Typography</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" routerLink="/maps">
+                                <i class="fa fa-globe"></i>
+                                <span>Maps</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" routerLink="/notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="menu-header mt-4 mb-4">
+                        Opalite Dashboard
+                    </div>
+                    <div class="view-source mb-3">
+                        <a href="https://opalite.gg/dashboard" target="_blank"
+                            class="btn btn-block btn-lightning rounded-0">Dashboard</a>
+                    </div>
+                </nav>
+            </aside>
+
+            <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4">
+
+                <h4 class="mb-4 text-muted">Dashboard </h4>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="card-innerBody d-flex align-items-center">
+                                    <div class="card-icon text-light">
+                                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <p class="card-label text-right text-muted">Revenue</p>
+                                        <h4 class="card-text text-right ">$ 199,099</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex ">
+                                <small class="text-muted">Since last month</small>
+                                <small class="text-success ml-auto">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    5,35%
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="card-innerBody d-flex align-items-center">
+                                    <div class="card-icon text-light">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <p class="card-label text-right text-muted">Orders</p>
+                                        <h4 class="card-text text-right ">2,200</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex ">
+                                <small class="text-muted">Since last month</small>
+                                <small class="text-success ml-auto">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    8,66%
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="card-innerBody d-flex align-items-center">
+                                    <div class="card-icon text-light">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <p class="card-label text-right text-muted">Visitors</p>
+                                        <h4 class="card-text text-right ">702,258</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex ">
+                                <small class="text-muted">Since last month</small>
+                                <small class="text-danger ml-auto">
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    2,81%
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="card-innerBody d-flex align-items-center">
+                                    <div class="card-icon text-light">
+                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <p class="card-label text-right text-muted">Followers</p>
+                                        <h4 class="card-text text-right "> +50K</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex ">
+                                <small class="text-muted">Since last month</small>
+                                <small class="text-success ml-auto">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    1,74%
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-xl-6 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-title mb-1 p-3 d-flex">
+                                <h6>Chart Line</h6>
+                                <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-ellipsis-h"></i> </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="position: relative;">
+                                    <canvas id="chart-line" width="2" height="1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-6 mb-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-title mb-1 p-3 d-flex">
+                                <h6>Chart Bar</h6>
+                                <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-ellipsis-h"></i> </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="position: relative;">
+                                    <canvas id="chart-bar" width="2" height="1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4 mb-4 align-items-stretch">
+                        <div class="card h-100 border-0 rounded-0">
+                            <div class="card-title mb-1 p-3 d-flex">
+                                <h6>Chart Doughnut</h6>
+                                <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-ellipsis-h"></i> </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container d-flex h-100 align-items-center justify-content-center"
+                                    style="position: relative;">
+                                    <canvas id="chart-doughnut" style="height:100%"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="legend d-flex just">
+                                    <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                            style="background: #5b6582;"></span><small>HTML</small></div>
+                                    <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                            style="background: #98a4c7;"></span><small>CSS</small></div>
+                                    <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                            style="background: #36a2eb;"></span><small>Javascript</small></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-8 mb-4 align-items-stretch">
+                        <div class="card h-100 border-0 rounded-0">
+                            <div class="card-title mb-1 p-3 d-flex">
+                                <h6>Purchases</h6>
+                                <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-ellipsis-h"></i> </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive-md">
+                                    <div class="table-responsive">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:40%;">Product</th>
+                                                    <th class="number">Price</th>
+                                                    <th style="width:20%;">Date</th>
+                                                    <th style="width:20%;">State</th>
+                                                    <th class="actions" style="width:5%;"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="no-border-x">
+                                                <tr>
+                                                    <td>Sony Xperia M4</td>
+                                                    <td class="number">$149</td>
+                                                    <td>Aug 23, 2018</td>
+                                                    <td class="text-success">Completed</td>
+                                                    <td class="actions"><a class="icon" href="#"><i
+                                                                class="mdi mdi-plus-circle-o"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Apple iPhone 6</td>
+                                                    <td class="number">$535</td>
+                                                    <td>Aug 20, 2018</td>
+                                                    <td class="text-success">Completed</td>
+                                                    <td class="actions"><a class="icon" href="#"><i
+                                                                class="mdi mdi-plus-circle-o"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Samsung Galaxy S7</td>
+                                                    <td class="number">$583</td>
+                                                    <td>Aug 18, 2018</td>
+                                                    <td class="text-warning">Pending</td>
+                                                    <td class="actions"><a class="icon" href="#"><i
+                                                                class="mdi mdi-plus-circle-o"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HTC One M9</td>
+                                                    <td class="number">$350</td>
+                                                    <td>Aug 15, 2018</td>
+                                                    <td class="text-warning">Pending</td>
+                                                    <td class="actions"><a class="icon" href="#"><i
+                                                                class="mdi mdi-plus-circle-o"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sony Xperia Z5</td>
+                                                    <td class="number">$495</td>
+                                                    <td>Aug 13, 2018</td>
+                                                    <td class="text-danger">Cancelled</td>
+                                                    <td class="actions"><a class="icon" href="#"><i
+                                                                class="mdi mdi-plus-circle-o"></i></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

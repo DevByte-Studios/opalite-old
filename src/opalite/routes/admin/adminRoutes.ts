@@ -6,7 +6,10 @@ export async function handleAdmin(req, res) {
             if (user.permission_level == 0) {
                 res.redirect("/dashboard");
             } else {
-                res.render("../templates/opalite/admin/admin.ejs", {});
+                res.render("../templates/opalite/admin/admin.ejs", {
+                    user,
+                    discord: req.session["discord-info"]
+                });
             }
         });
     } else

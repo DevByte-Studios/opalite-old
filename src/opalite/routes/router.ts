@@ -5,7 +5,7 @@ import { authorize, loginRedirect } from "../accounts/oauth";
 import { handleAdmin } from "./admin/adminRoutes";
 import { handleIndex } from "./index/indexRoutes";
 
-var app;
+const { pathToRegexp, match, parse, compile } = require("path-to-regexp");
 
 export const routes = {
   homepage: {
