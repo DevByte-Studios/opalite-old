@@ -40,5 +40,5 @@ export async function loginRedirect(req, res) {
     let redirectUrl = "http://127.0.0.1/oauth2/authorize";
     if (req.query.redirect)
         redirectUrl += "?redirect=" + req.query.redirect;
-    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=789165139378044938&redirect_uri=${encodeURIComponent(redirectUrl)}&response_type=code&scope=identify`);
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=809458172460793866&redirect_uri=${encodeURIComponent(redirectUrl)}&response_type=code&scope=identify`);
 }
