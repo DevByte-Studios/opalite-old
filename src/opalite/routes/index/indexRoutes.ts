@@ -1,3 +1,3 @@
 export async function handleIndex(req, res) {
-    res.render("../templates/opalite/index.ejs");
+    res.render("../templates/opalite/themes/default/index.ejs");
 }
