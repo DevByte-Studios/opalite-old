@@ -25,7 +25,7 @@
     <div class="wrapper default-theme">
         <nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
             <div class="navbar-header pl-2 pr-2 ml-3 text-center"> <a class="navbar-brand m-0 w-100" href="#"> <img
-                        alt="logo" src="opalite/img/logo.png" width="35px"> <span class="ml-1">Opalite</span> </a>
+                        alt="logo" src="opalite/img/logo.png" height="24px"> </a>
             </div>
             <div class="sidebar-toggler ml-auto mr-3"> <a class="btn nav-link"> <i class="fa fa-bars"></i> </a> </div>
             <div class="nav-toggler-right mr-4 d-md-none"> <button aria-controls="collapseBasic" class="" type="button"
@@ -72,44 +72,62 @@
                 </div>
                 <nav class="sidebar-menu pt-3 pb-3">
                     <div class="menu-header mt-3 mb-2">
-                        Components
+                        General
                     </div>
                     <ul class="menu-items">
                         <li>
-                            <a href="#" routerLink="/dashboard" class="active">
+                            <a href="#" routerLink="/admin/dashboard" class="active">
                                 <i class="fa fa-tv"></i>
                                 <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/settings">
+                                <i class="fas fa-cogs"></i>
+                                <span>General Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/settings/theme">
+                                <i class="fas fa-gem"></i>
+                                <span>Theme Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/settings/theme-editor">
+                                <i class="fas fa-edit"></i>
+                                <span>Theme Editor</span>
                                 <span class="badge badge-warning rounded-0 text-dark p-1">NEW</span>
                             </a>
                         </li>
+                    </ul>
+
+                    <div class="menu-header mt-3 mb-2">
+                        Store Settings
+                    </div>
+                    <ul class="menu-items">
                         <li>
-                            <a href="#" routerLink="/forms">
-                                <i class="fas fa-gem"></i>
-                                <span>Forms</span>
+                            <a href="/admin/store">
+                                <i class="fas fa-cogs"></i>
+                                <span>Settings</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" routerLink="/tables">
-                                <i class="fa fa-table"></i>
-                                <span>Tables</span>
+                            <a href="/admin/store/payments">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payments</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" routerLink="/typography">
-                                <i class="fa fa-align-center"></i>
-                                <span>Typography</span>
+                            <a href="/admin/store/categories/">
+                                <i class="fas fa-sort"></i>
+                                <span>Categories</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" routerLink="/maps">
-                                <i class="fa fa-globe"></i>
-                                <span>Maps</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" routerLink="/notifications">
-                                <i class="fas fa-bell"></i>
-                                <span>Notifications</span>
+                            <a href="/admin/store/products">
+                                <i class="fas fa-archive"></i>
+                                <span>Packages</span>
                             </a>
                         </li>
                     </ul>
