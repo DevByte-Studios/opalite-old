@@ -12,4 +12,5 @@ export async function init() {
         password: 'RL2fzm2mMFYgu8tk',
         database: 'opalite_product'
     });
+
 }
