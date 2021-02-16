@@ -2,6 +2,7 @@ import { modifyCredits } from "../accounts/accountDbUtils";
 import { db } from "../db/database";
 import { notifyPrior } from "../discordBot/discordBot";
 import { subscriptionsLength } from "./subscription";
+import { simpleflake } from "simpleflakes";
 
 export function deactivateSub(subscription) {
     if (subscription.state != "inactive") {
@@ -20,6 +21,13 @@ export function renewSub(subscription) {
         console.log("reactivating (unsuspending) product" + subscription.uid); // TODO : set config.php -> active
         db.query("UPDATE products SET state=? WHERE uid=?", ["active", subscription.uid]);
     }
+}
+
+export function createSub(user) {
+    const flake = simpleflake().toString(36) + "";
+    let currDate = Math.floor(Date.now() / 1000);
+    db.query("INSERT INTO products (uid, owner, initiatedAt, nextDue, state, notified) VALUES (?, ?, ?, ?, ?, ?)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active", 0]);
+    console.log("created product");
 }
 
 export function notify(subscription) {
