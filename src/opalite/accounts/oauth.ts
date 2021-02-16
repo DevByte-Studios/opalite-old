@@ -22,7 +22,7 @@ export function authorize(req, res) {
                     res.redirect("/");
                     return;
                 }
-                discordRegister(dcResponse.id + "", (id, permission) => {
+                discordRegister(dcResponse.id + "", dcResponse.avatar + "", (id, permission) => {
                     req.session["user"] = id;
                     req.session["discord-info"] = dcResponse;
                     req.session["permission"] = permission;

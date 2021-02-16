@@ -81,6 +81,10 @@
                 {
                     "name": "role",
                     "type": "TEXT"
+                },
+                {
+                    "name": "credits",
+                    "type": "INTEGER"
                 }
             ]
         }
