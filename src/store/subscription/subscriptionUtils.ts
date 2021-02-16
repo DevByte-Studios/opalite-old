@@ -3,6 +3,7 @@ import { db } from "../db/database";
 import { notifyPrior } from "../discordBot/discordBot";
 import { subscriptionsLength } from "./subscription";
 import { simpleflake } from "simpleflakes";
+import { tables } from "./tables_product.json";
 
 export function deactivateSub(subscription) {
     if (subscription.state != "inactive") {
@@ -27,7 +28,25 @@ export function createSub(user) {
     const flake = simpleflake().toString(36) + "";
     let currDate = Math.floor(Date.now() / 1000);
     db.query("INSERT INTO products (uid, owner, initiatedAt, nextDue, state, notified) VALUES (?, ?, ?, ?, ?, ?)", [flake, user.uid, currDate, currDate + subscriptionsLength, "active", 0]);
+    db.query("USE opalite_product");
+    initTablesForSub(flake);
+    db.query("USE opalite");
     console.log("created product");
+}
+
+function initTablesForSub(prefix) {
+    //Create all tables from tables_product.json
+    tables.forEach(table => {
+        let sql = `CREATE TABLE IF NOT EXISTS ${prefix + "_" + table.name}(`;
+        table.columns.forEach(column => {
+            sql += `${column.name} ${column.type},`;
+        });
+
+        sql = sql.substr(0, sql.length - 1); //to remove ',' at end
+        sql += `)`;
+
+        db.query(sql);
+    });
 }
 
 export function notify(subscription) {
