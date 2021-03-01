@@ -75,6 +75,10 @@
                     "type": "TEXT"
                 },
                 {
+                    "name": "steamid",
+                    "type": "TEXT"
+                },
+                {
                     "name": "permission_level",
                     "type": "INTEGER"
                 },
